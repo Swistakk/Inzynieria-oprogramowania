@@ -1,0 +1,25 @@
+Wizja:
+1. Krótki opis systemu
+2. Korzyści i możliwości powstałe w wyniku systemu
+3. Problemy rozwiązywane przez system
+4. Dla kogo robimy system
+5. Kluczowe funkcjonalności
+6. Kluczowe wymagania poza funkcjonalne
+7. Przewidywany "zwrot z inwestycji"
+
+1. Program będzie udostępniał kilka-kilkanaście łamigłówek do rozwiązywania przez 1 osobę. Łamigłówki będą dwojakiego typu:
+a) logiczne, np. sudoku, samotnik
+b) słowno-ruchowe, np. "Pójdź do miejsca, gdzie faraon coś wyrzeźbić kazał" (rozwiązanie: pójść do Sfinksa)
+oraz rankingi.
+
+2. Rozwiązanie łamigłówki będzie udostępniać inne łamigłówki, lub wiadomości, linki, zdjęcia. Za pomocą kilku łamigłówek można zorganizować grę miejską, rywalizację, lub przesłać komuś prezent-niespodziankę, do którego otwarcia trzeba rozwiązać łamigłówkę.
+
+3. 
+
+4. Dla osób lubiących logiczne myślenie i zabawę na świeżym powietrzu.
+
+5. a) rozwiązywanie łamigłówek
+
+6. 
+
+7. 

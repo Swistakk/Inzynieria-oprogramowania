@@ -1,0 +1,9 @@
+1. Wizja
+2. Specyfikacja
+3. Architektura + technologia
+4. Zarządzanie jakością
+5. Zarządzanie konfiguracją
+6. Harmonogram + praca
+7. Kody + program
+8. Dokumentacja
+9. Prezentacja
