@@ -11,15 +11,24 @@ Wizja:
 a) logiczne, np. sudoku, samotnik
 b) słowno-ruchowe, np. "Pójdź do miejsca, gdzie faraon coś wyrzeźbić kazał" (rozwiązanie: pójść do Sfinksa)
 oraz rankingi.
+Rozwiązanie łamigłówki będzie udostępniać inne łamigłówki, lub wiadomości, linki, zdjęcia.
 
-2. Rozwiązanie łamigłówki będzie udostępniać inne łamigłówki, lub wiadomości, linki, zdjęcia. Za pomocą kilku łamigłówek można zorganizować grę miejską, rywalizację, lub przesłać komuś prezent-niespodziankę, do którego otwarcia trzeba rozwiązać łamigłówkę.
+2. Za pomocą kilku łamigłówek można zorganizować grę miejską, rywalizację, lub przesłać komuś prezent-niespodziankę, do którego otwarcia trzeba rozwiązać łamigłówkę. Firmy będą mogły udostępniać łamigłówki, po których rozwiązaniu użytkownik otrzyma kupony rabatowe.
+Aplikacja łączy aktywność umysłową i fizyczną, co korzystnie wpływa na jedno i drugie - specjaliści polecają je przeplatać.
 
-3. 
+3. a) konieczność umieszczania zagadek w różnych miejscach przy organizacji gier terenowych
+b) konieczność pisania nowej aplikacji za każdym razem, gdy jakaś firma chce zaoferować kupony rabatowe
+c) nuda w poczekalniach
+d) zbyt mało czasu poświęcane na trening logicznego myślenia
 
-4. Dla osób lubiących logiczne myślenie i zabawę na świeżym powietrzu.
+4. Dla osób lubiących logiczne myślenie i zabawę na świeżym powietrzu, a także firm chcących zareklamować się poprzez kupony rabatowe.
 
-5. a) rozwiązywanie łamigłówek
+5. a) prezentowanie i umożliwienie rozwiązywania łamigłówek
+b) łączenie zadań w ciągi - rozwiązanie jednego odblokowuje kolejne
+c) prezentowanie nagrody za rozwiązane zadanie
 
-6. 
+6. a) aplikacja będzie działać na telefonach i tabletach z systemem Android 2.3 lub nowszym posiadających GPS
+b) przejrzysty i intuicyjny interfejs
+c) responsywność, a tam, gdzie nie da się jej osiągnąć, stosowna informacja o konieczności zaczekania
 
-7. 
+7. Lepsze CV, doświadczenie pracy zespołowej, satysfakcja.
