@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EditText
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="60dp"
+    android:layout_height="60dp"
+    android:background="@drawable/rounded_text_edit"
+    android:inputType="number"
+    android:textSize="30sp"
+    android:maxLines="1"
+    android:maxLength="2"
+    android:gravity="center_horizontal"
+    android:ellipsize="start"
+    android:paddingTop="10dp"/>
