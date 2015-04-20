@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MagicSquare</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_second_level">SecondLevel</string>
+    <string name="title_activity_game_menu">GameMenu</string>
+    <string name="title_activity_level">LevelActivity</string>
+    <string name="title_activity_game_rules">GameRules</string>
+</resources>

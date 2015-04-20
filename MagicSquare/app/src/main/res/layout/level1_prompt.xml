@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:text="Gratulacje"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        />.
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zagraj na planszy 3x3"
+        android:onClick="playSublevel"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:layout_alignRight="@+id/menuButton"
+        android:layout_alignLeft="@+id/menuButton"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zagraj na plaszny 4x4"
+        android:onClick="playNextLevel"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp"
+        android:layout_alignRight="@+id/menuButton"
+        android:layout_alignLeft="@+id/menuButton"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Powrót do menu głównego"
+        android:onClick="backToMenu"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="180dp"
+        android:id="@+id/menuButton"
+        />
+
+</RelativeLayout>
