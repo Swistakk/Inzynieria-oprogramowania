@@ -4,4 +4,23 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_main">MainActivity</string>
+
+    <string name="question_edit_hint">Nazwa zagadki</string>
+    <string name="question_body_edit_hint">Treść zagadki</string>
+    <string name="question_answer_edit_hint">Odpowiedź</string>
+    <string name="question_save_text">Zapisz zagadkę!</string>
+    <string name="question_saving">Zapisywanie zagadki...</string>
+    <string name="question_saved">Zapisano</string>
+    <string name="question_set_location_text">Ustaw tu punkt docelowy</string>
+    <string name="question_clear_location_text">Wyczyść punkt docelowy</string>
+    <string name="question_obtaining_location">Określanie lokalizacji...</string>
+    <string name="question_location_obtained">Pobrano lokalizację</string>
+    <string name="question_no_location">Zagadka nie wymaga poruszania się</string>
+
+    <string name="question_save_toast_bad_data">Musisz wypełnić wszystkie pola</string>
+
+    <string name="riddle_answer">OK</string>
+    <string name="riddle_downloading">Pobieranie zagadki...</string>
+    <string name="question_bad_answer">Zła odpowiedź :P</string>
+
 </resources>

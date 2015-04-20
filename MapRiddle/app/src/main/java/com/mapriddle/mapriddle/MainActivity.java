@@ -8,16 +8,30 @@ import android.view.MenuItem;
 
 
 public class MainActivity extends ActionBarActivity {
+    private static final int CREATE_REQUEST = 1234;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Intent i = new Intent(this, RiddleMapPlayActivity.class);
-        i.putExtra("RIDDLE_CODE", "DaE89UEMwg");
+        i.putExtra("RIDDLE_CODE", "wZQ6DSgjHn");
         startActivity(i);
+
+        Intent i2 = new Intent(this, RiddleMapCreateActivity.class);
+        startActivityForResult(i2, CREATE_REQUEST);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // Check which request we're responding to
+        if (requestCode == CREATE_REQUEST) {
+            // Make sure the request was successful
+            if (resultCode == RESULT_OK) {
+
+            }
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
