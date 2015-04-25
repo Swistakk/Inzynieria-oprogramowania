@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Nurikabe</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="edit_message">Enter a message</string>
+    <string name="button_send">Send!</string>
+    <string name="title_activity_display_message">My Message</string>
+    <string name="title_activity_game_rules">GameRules</string>
+    <string name="rules">Twoim celem jest zaznaczenie wysp na morzu.
+    Do każdej wyspy ma należeć dokładnie jedno pole z liczbą
+    i wyspa musi składać się z tylu pól ile wynosi ta liczba.
+    Wyspy nie mogą się stykać bokami. Pozostała część planszy to morze.
+    Morze musi być spójne oraz nie może zawierać w sobie kwadratu 2x2.</string>
+    <string name="title_activity_play_level">PlayLevel</string>
+</resources>
