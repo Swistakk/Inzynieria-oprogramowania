@@ -1,43 +1,25 @@
 package com.example.joanna.nonograms;
 
-import android.graphics.Color;
+/**
+ * Created by joanna on 25.04.15.
+ */
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.GridView;
-import android.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity {
 
-    int COLUMN_NR = 13;
+    public final static String EXTRA_MESSAGE = "com.example.joanna.myapplication.MESSAGE";
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        GridView gridview = (GridView) findViewById(R.id.gridview);
-        gridview.setAdapter(new TextAdapter(this));
-        gridview.setNumColumns(COLUMN_NR);
-        //gridview.setGravity(View.TEXT_ALIGNMENT_CENTER);
-        //gridview.setStretchMode(GridView.STRETCH_COLUMN_WIDTH);
-        //gridview.setColumnWidth(100);
-        //gridview.setMinimumHeight(30);
-        gridview.setBackgroundColor(Color.BLACK);
-        gridview.setHorizontalSpacing(1);
-        gridview.setVerticalSpacing(1);
-
-        gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View v,
-                                    int position, long id) {
-                Toast.makeText(MainActivity.this, "" + position,
-                        Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
 
@@ -61,5 +43,17 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    /** Called when the user clicks the Start button */
+    public void start(View view) {
+        // Do something in response to button
+        Intent intent = new Intent(this, StartActivity.class);
+        startActivity(intent);
+
+    }
+    public void quit(View view) {
+        finish();
+        System.exit(0);
     }
 }
