@@ -22,5 +22,12 @@
     <string name="riddle_answer">OK</string>
     <string name="riddle_downloading">Pobieranie zagadki...</string>
     <string name="question_bad_answer">Zła odpowiedź :P</string>
+    <string name="question_correct_answer">Dobra odpowiedź! Gratulacje!</string>
+    <string name="button_play">Graj</string>
+    <string name="button_create">Twórz</string>
+    <string name="button_magic_squares">Magiczne kwadraty</string>
+    <string name="button_nonograms">Nonogramy</string>
+    <string name="button_nurikabe">Nurikabe</string>
+    <string name="button_riddles">Zagadki</string>
 
 </resources>

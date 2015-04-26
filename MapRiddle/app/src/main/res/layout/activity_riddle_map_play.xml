@@ -22,7 +22,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:hint="@string/question_answer_edit_hint"
-        android:inputType="text"/>
+        android:inputType="text"
+        android:imeOptions="actionDone"/>
     <Button
         android:id="@+id/question_save"
         android:text="@string/riddle_answer"

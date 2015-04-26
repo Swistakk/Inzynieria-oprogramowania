@@ -5,6 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -15,6 +18,8 @@ import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+
+import static com.mapriddle.mapriddle.GlobalUtils.showToast;
 
 
 public class RiddleMapPlayActivity extends Activity {
@@ -30,8 +35,6 @@ public class RiddleMapPlayActivity extends Activity {
 
         String objectId = getIntent().getExtras().getString("RIDDLE_CODE");
 
-        Parse.initialize(this, "pCndNpLBkQMRykaaOclYxYHXUzYZ8iYCySTzvqGF", "6ZgGtMmvbW0nCBivgEXhUsoOET6UNhJWQQW4qPOL");
-
         ParseQuery<ParseObject> query = ParseQuery.getQuery("RIDDLE");
         query.getInBackground(objectId, new GetCallback<ParseObject>() {
             public void done(final ParseObject object, ParseException e) {
@@ -45,6 +48,13 @@ public class RiddleMapPlayActivity extends Activity {
                             name_textView.setText(name);
                             body_textView.setText(body);
                             answer = ans;
+                            ((EditText) findViewById(R.id.question_answer_edit)).setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                                @Override
+                                public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                                    answerRiddle(null);
+                                    return false; //hides keyboard
+                                }
+                            });
                         }
                     });
                 else
@@ -65,17 +75,14 @@ public class RiddleMapPlayActivity extends Activity {
 
     public void answerRiddle(View view){
         if(normalize(((EditText) findViewById(R.id.question_answer_edit)).getText()).equals(normalize(answer))){
+            showToast(R.string.question_correct_answer, this);
             Intent resultIntent = new Intent();
             resultIntent.putExtra("RIDDLE_ANSWERED", true);
             setResult(Activity.RESULT_OK, resultIntent);
             finish();
         }
         else{
-            Context context = getApplicationContext();
-            CharSequence text = getResources().getText(R.string.question_bad_answer);
-            int duration = Toast.LENGTH_SHORT;
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.show();
+            showToast(R.string.question_bad_answer, this);
         }
     }
 

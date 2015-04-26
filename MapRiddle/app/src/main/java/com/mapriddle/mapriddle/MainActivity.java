@@ -14,12 +14,12 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Intent i = new Intent(this, RiddleMapPlayActivity.class);
-        i.putExtra("RIDDLE_CODE", "wZQ6DSgjHn");
-        startActivity(i);
 
         Intent i2 = new Intent(this, RiddleMapCreateActivity.class);
         startActivityForResult(i2, CREATE_REQUEST);
+
+        Intent i3 = new Intent(this, RiddleMapListActivity.class);
+        startActivity(i3);
     }
 
     @Override

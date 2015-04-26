@@ -38,9 +38,7 @@ public class RiddleMapCreateActivity extends Activity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_riddle_map_create);
-        locationState = (TextView) findViewById(R.id.question_location_state);
-
-        Parse.initialize(this, "pCndNpLBkQMRykaaOclYxYHXUzYZ8iYCySTzvqGF", "6ZgGtMmvbW0nCBivgEXhUsoOET6UNhJWQQW4qPOL");
+ //       locationState = (TextView) findViewById(R.id.question_location_state); //TODO uncomment to enable location obtainer
 
         googleApiClient = new GoogleApiClient.Builder(this)
                 .addApi(LocationServices.API)

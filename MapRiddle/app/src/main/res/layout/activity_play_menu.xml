@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <Button
+        android:id="@+id/button_magic_squares"
+        android:text="@string/button_magic_squares"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="play_magic_squares"/>
+    <Button
+        android:id="@+id/button_nonograms"
+        android:text="@string/button_nonograms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="play_nonograms"/>
+    <Button
+        android:id="@+id/button_nurikabe"
+        android:text="@string/button_nurikabe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="play_nurikabe"/>
+    <Button
+        android:id="@+id/button_riddles"
+        android:text="@string/button_riddles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="play_riddles"/>
+
+</LinearLayout>
