@@ -104,7 +104,7 @@ public class GameHandler {
         }
         return sz;
     }
-    public List<Triple> generateBoard(int seed) {
+    public ArrayList<Triple> generateBoard(int seed) {
         Random rand = new Random();
         rand.setSeed(seed);
         //int vers = (n + 2) * (n + 2);
@@ -137,7 +137,7 @@ public class GameHandler {
             }
         }
         vis = new int[n + 2][n + 2];
-        List<Triple> to_ret = new ArrayList<Triple>(1);
+        ArrayList<Triple> to_ret = new ArrayList<Triple>(1);
         for (int r = 1; r <= n; r++) {
             for (int c = 1; c <= n; c++) {
                 if (board[r][c].type != 2 ) {

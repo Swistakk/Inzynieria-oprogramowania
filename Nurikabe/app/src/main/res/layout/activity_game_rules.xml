@@ -9,14 +9,16 @@
     <TextView
         android:text="@string/rules"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/picture"
+        android:layout_marginBottom="20dp" />
 
     <Button
         android:text="Powrót do menu"
         android:onClick="backToMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="42dp"
+        android:layout_marginBottom="20dp"
         android:id="@+id/button3"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
