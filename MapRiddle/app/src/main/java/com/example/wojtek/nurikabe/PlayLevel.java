@@ -1,5 +1,6 @@
 package com.example.wojtek.nurikabe;
 
+import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBarActivity;
@@ -20,7 +21,7 @@ import java.util.List;
 import static android.util.Log.d;
 
 
-public class PlayLevel extends ActionBarActivity {
+public class PlayLevel extends Activity {
 
     private int free_color = Color.WHITE;
     //private int background_color = Color.parseColor("#ffc107");
@@ -72,10 +73,34 @@ public class PlayLevel extends ActionBarActivity {
     }
 
     public void check(View view) {
-        GameHandler handler = new GameHandler(10);
         TextView mes = (TextView) findViewById(R.id.message);
         mes.setVisibility(TextView.VISIBLE);
-        mes.setText("    Sprawdzanie to be done :)!    ");
+        GridView gridview = (GridView) findViewById(R.id.grid);
+        GameHandler handler = new GameHandler(10);
+        boolean ok = true;
+        for (int r = 0; r < 10; r++) {
+            for (int c = 0; c < 10; c++) {
+                int pos = r * 10 + c;
+                TextView tv = (TextView) gridview.getChildAt(pos);
+                ColorDrawable cd = (ColorDrawable) tv.getBackground();
+                int current = cd.getColor();
+                if (current == free_color) {
+                    handler.setField(r + 1, c + 1, 0, 0);
+                } else if (current == sea_color) {
+                    handler.setField(r + 1, c + 1, 2, 0);
+                } else {
+                    int isl_sz = 0;
+                    String sz_str = (tv.getText()).toString();
+                    if (sz_str == "") {
+                        isl_sz = 0;
+                    } else {
+                        isl_sz = Integer.parseInt(sz_str);
+                    }
+                    handler.setField(r + 1, c + 1, 1, isl_sz);
+                }
+            }
+        }
+        mes.setText(handler.checkBoard());
     }
 
     @Override

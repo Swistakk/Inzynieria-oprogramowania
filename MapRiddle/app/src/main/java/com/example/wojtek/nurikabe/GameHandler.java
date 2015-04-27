@@ -28,6 +28,14 @@ public class GameHandler {
 
     public GameHandler(int n_) {
         n = n_;
+        board = new Field[n + 2][n + 2];
+        vis = new int[n + 2][n + 2];
+        for (int r = 0; r < n + 2; r++) {
+            for (int c = 0; c < n + 2; c++) {
+                board[r][c] = new Field(0, 0);
+                vis[r][c] = 0;
+            }
+        }
     }
     int n;
 //    int[] rep;
@@ -107,17 +115,12 @@ public class GameHandler {
     public ArrayList<Triple> generateBoard(int seed) {
         Random rand = new Random();
         rand.setSeed(seed);
-        //int vers = (n + 2) * (n + 2);
-//        rep = new int[vers];
         board = new Field[n + 2][n + 2];
         for (int r = 0; r < n + 2; r++) {
             for (int c = 0; c < n + 2; c++) {
                 board[r][c] = new Field(0, 0);
             }
         }
-//        for (int i = 0; i < vers; i++) {
-//            rep[i] = i;
-//        }
         int st_r = rand.nextInt(n) + 1;
         int st_c = rand.nextInt(n) + 1;
         //System.out.println("START: " + st_r + " " + st_c);
@@ -176,16 +179,21 @@ public class GameHandler {
         return to_ret;
     }
 
-    public boolean checkBoard() {
+    public void setField(int r, int c, int ty, int num) {
+        board[r][c].type = ty;
+        board[r][c].number = num;
+    }
+
+    public String checkBoard() {
         int area = n * n;
         for (int r = 1; r <= n; r++) {
             for (int c = 1; c <= n; c++) {
                 vis[r][c] = 0;
                 if (is2x2Sea(r, c)) {
-                    return false;
+                    return "Istnieje kwadrat 2x2 morza!";
                 }
                 if (board[r][c].type == 0) {
-                    return false;
+                    return "Nie wszystko jest wypełnione!";
                 }
             }
         }
@@ -193,11 +201,11 @@ public class GameHandler {
             for (int c = 1; c <= n; c++) {
                 if (board[r][c].number != 0) {
                     if (vis[r][c] != 0) { // wyspa z wieloma liczbami
-                        return false;
+                        return "Istnieje wyspa z wieloma liczbami!";
                     }
                     int sz = dfs(r, c, 1);
                     if (sz != board[r][c].number) { // wyspa ze zla liczba pol
-                        return false;
+                        return "Istnieje wyspa ze złą liczbą pól!";
                     }
                     area -= sz;
                 }
@@ -208,14 +216,14 @@ public class GameHandler {
                 if (board[r][c].type == 2) {
                     int sz = dfs(r, c, 2);
                     if (area == sz) {
-                        return true;
+                        return "WOW! Udało Ci się!!!";
                     } else {
-                        return false; // jeden kawalek morza nie starczyl by wyrownac niezbadane pole do 0
+                        return "Morze nie jest spójne!"; // jeden kawalek morza nie starczyl by wyrownac niezbadane pole do 0
                     }
                 }
             }
         }
-        return false; // nie bylo morza wcale (zakladam, ze nie ma planszy bedacej jedna wyspa :) )
+        return "Ups!"; // nie bylo morza wcale (zakladam, ze nie ma planszy bedacej jedna wyspa :) )
     }
 
 }

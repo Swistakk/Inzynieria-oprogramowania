@@ -9,6 +9,8 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.TextView;
 
+import com.mapriddle.mapriddle.R;
+
 import java.util.ArrayList;
 
 /**
@@ -54,6 +56,7 @@ public class FieldAdapter extends BaseAdapter {
         int width = metrics.widthPixels;
         int height = metrics.heightPixels;
 
+        //int margins = findViewById(R.id.message);
         int size = width / columnsNum - 1;
 
         if (convertView == null) {
