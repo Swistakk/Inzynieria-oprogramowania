@@ -29,6 +29,10 @@
     <string name="button_nonograms">Nonogramy</string>
     <string name="button_nurikabe">Nurikabe</string>
     <string name="button_riddles">Zagadki</string>
-    <string name="button_start">Play</string>
+
+
+    <string name="title_activity_start_game">Start Game</string>
+    <string name="button_start">Start</string>
+    <string name="title_activity_start">Start!</string>
 
 </resources>
