@@ -11,6 +11,9 @@ import com.mapriddle.mapriddle.R;
 
 import utils.Converter;
 
+/**
+ * This Activity provide game rules menu
+ */
 public class GameRules extends Activity {
 
     @Override
@@ -24,6 +27,10 @@ public class GameRules extends Activity {
         image.setImageBitmap(bitmap);
     }
 
+    /**
+     * this method terminate game rule activity
+     * @param view which invoke this method
+     */
     public void backToMenu(View view) {
 
         finish();

@@ -8,7 +8,9 @@ import android.widget.RelativeLayout;
 import com.mapriddle.mapriddle.R;
 
 import utils.BoardHandler;
-
+/**
+ * This class provide 4x4 level activity
+ */
 public class SecondLevel extends LevelActivity {
 
     private final int SIZE = 60;
@@ -57,6 +59,10 @@ public class SecondLevel extends LevelActivity {
                 R.layout.level2_prompt);
     }
 
+    /**
+     * create 3x3 activity
+     * @param view which invoke method, view is from winning alert
+     */
     public void playNextLevel(View view) {
 
         Intent intent = new Intent(this, FirstLevel.class);
@@ -64,6 +70,10 @@ public class SecondLevel extends LevelActivity {
         finish();
     }
 
+    /**
+     * create 4x4 activity
+     * @param view which invoke method, view is from winning alert
+     */
     public void playSublevel(View view) {
 
         Intent intent = new Intent(this, SecondLevel.class);
