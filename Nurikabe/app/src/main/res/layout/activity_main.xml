@@ -27,21 +27,12 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Zagraj 3x3"
-        android:onClick="play3x3Level"
-        android:layout_weight="1"
-        android:layout_marginTop="150dp"
-        android:layout_centerHorizontal="true"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="Zagraj 10x10"
         android:onClick="play10x10Level"
         android:layout_weight="1"
-        android:layout_marginTop="240dp"
+        android:layout_marginTop="150dp"
         android:layout_centerHorizontal="true"
-        android:id="@+id/button" />
+        android:id="@+id/buttonPlay" />
 
     <Button
         android:layout_width="wrap_content"
@@ -49,11 +40,12 @@
         android:text="Zasady gry"
         android:onClick="displayRules"
         android:layout_weight="1"
-        android:layout_marginTop="330dp"
-        android:layout_alignRight="@+id/button"
-        android:layout_alignEnd="@+id/button"
-        android:layout_alignLeft="@+id/button"
-        android:layout_alignStart="@+id/button"
+        android:layout_below="@+id/buttonPlay"
+        android:layout_marginTop="54dp"
+        android:layout_alignRight="@+id/buttonPlay"
+        android:layout_alignEnd="@+id/buttonPlay"
+        android:layout_alignLeft="@+id/buttonPlay"
+        android:layout_alignStart="@+id/buttonPlay"
         android:id="@+id/button2" />
 
     <Button

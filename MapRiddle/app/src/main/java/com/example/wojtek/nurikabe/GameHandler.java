@@ -9,6 +9,13 @@ import static android.util.Log.d;
 /**
  * Created by wojtek on 24.04.15.
  */
+
+/**
+ * Class responsible for Nurikabe-specific things.
+ * It is able to generate boards and checking solutions
+ * Everything within this class is 1-indexed,
+ * unfortunately with contrary to PlayLevel where things are 0-indexed
+ */
 public class GameHandler {
 
     public class Field {
@@ -25,7 +32,11 @@ public class GameHandler {
         }
     }
 
-
+    /**
+     * Creates a blank board of size n
+     * ("2" in "n + 2" stands guards along each side
+     * @param n_
+     */
     public GameHandler(int n_) {
         n = n_;
         board = new Field[n + 2][n + 2];
@@ -38,31 +49,20 @@ public class GameHandler {
         }
     }
     int n;
-//    int[] rep;
     Field[][] board;
-//    private int getId(int r, int c) {
-//        return r * (n + 2) + c;
-//    }
     private boolean inRange(int l, int r, int x) {
         return l <= x && x <= r;
     }
     private boolean isValid(int r, int c) {
         return inRange(1, n, r) && inRange(1, n, c);
     }
-//    private int find(int v) {
-//        if (rep[v] == v) {
-//            return v;
-//        }
-//        rep[v] = find(rep[v]);
-//        return rep[v];
-//    }
-//    private void union(int a, int b) {
-//        a = find(a);
-//        b = find(b);
-//        if (a != b) {
-//            rep[a] = b;
-//        }
-//    }
+
+    /**
+     * Checks whether square [a, a+1] x [b, b+1] is covered with sea
+     * @param a
+     * @param b
+     * @return
+     */
     private boolean is2x2Sea(int a, int b) {
         for (int dr = 0; dr <= 1; dr++) {
             for (int dc = 0; dc <= 1; dc++) {
@@ -73,6 +73,14 @@ public class GameHandler {
         }
         return true;
     }
+
+    /**
+     * Checks whether new 2x2 sea square will be created
+     * after changing cell (a, b) to sea
+     * @param a
+     * @param b
+     * @return
+     */
     private boolean noNew2x2(int a, int b) {
         board[a][b].type = 2;
         boolean to_ret = true;
@@ -88,7 +96,14 @@ public class GameHandler {
     }
     int[] ddr = {1, -1, 0, 0};
     int[] ddc = {0, 0, 1, -1};
-    private boolean isNei(int a, int b) {
+
+    /**
+     * Checks whether cell (a, b) has a neighbour which is sea
+     * @param a
+     * @param b
+     * @return
+     */
+    private boolean hasSeaNei(int a, int b) {
         for (int dir = 0; dir < 4; dir++) {
             if (board[a + ddr[dir]][b + ddc[dir]].type == 2) {
                 return true;
@@ -96,11 +111,29 @@ public class GameHandler {
         }
         return false;
     }
+
+    /**
+     * Checks whether generator can change cell (a, b) to sea.
+     * Established rule is that it cannot be sea already, it has to have
+     * a neighbour which is sea and no 2x2 sea square can be created
+     * @param a
+     * @param b
+     * @return
+     */
     private boolean canPlace(int a, int b) {
-        return board[a][b].type != 2 && isNei(a, b) && noNew2x2(a, b);
+        return board[a][b].type != 2 && hasSeaNei(a, b) && noNew2x2(a, b);
     }
     int[][] vis;
-    int dfs(int a, int b, int ty) {
+
+    /**
+     * Perfmorms DFS from cell (a, b) where we are allowed
+     * to step on cells with type "ty" only. It returns size of whole component
+     * @param a
+     * @param b
+     * @param ty
+     * @return
+     */
+    private int dfs(int a, int b, int ty) {
         vis[a][b] = 1;
         int sz = 1;
         for (int dir = 0; dir < 4; dir++) {
@@ -112,6 +145,17 @@ public class GameHandler {
         }
         return sz;
     }
+
+    /**
+     * This method generates a board. Since initial board is a grid
+     * with some field with some numbers, most succinct description
+     * of it consists of list of triples (a, b, v) denoting
+     * that value v is present in cell (a, b)
+     * Since generation of board is randomized, seed need to be provided
+     * to that function
+     * @param seed
+     * @return
+     */
     public ArrayList<Triple> generateBoard(int seed) {
         Random rand = new Random();
         rand.setSeed(seed);
@@ -164,26 +208,31 @@ public class GameHandler {
             }
             System.out.println();
         }
-//        for (int r = 1; r <= n; r++) {
-//            for (int c = 1; c <= n; c++) {
-//                if (board[r][c].number != 0) {
-//                    board[r][c].type = 1;
-//                } else {
-//                    board[r][c].type = 2;
-//                }
-//            }
-//        }
 
         d("Check result:", checkBoard() + " ");
 
         return to_ret;
     }
 
+    /**
+     * Sets cell (r, c) to type ty and number in it to num
+     * (used by check function from PlayLevel class)
+     * @param r
+     * @param c
+     * @param ty
+     * @param num
+     */
     public void setField(int r, int c, int ty, int num) {
         board[r][c].type = ty;
         board[r][c].number = num;
     }
 
+    /**
+     * Checks whether board contains valid solution
+     * and in case of player's failure provides him appropriate information of
+     * what went wrong
+     * @return
+     */
     public String checkBoard() {
         int area = n * n;
         for (int r = 1; r <= n; r++) {

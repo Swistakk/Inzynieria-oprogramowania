@@ -12,7 +12,9 @@ import com.mapriddle.mapriddle.R;
 
 import java.util.List;
 
-
+/**
+ * Activity with main menu
+ */
 public class MainActivity extends Activity {
 
     public final static String EXTRA_MESSAGE = "com.example.wojtek.nurikabe.MESSAGE";
@@ -54,16 +56,27 @@ public class MainActivity extends Activity {
 //        startActivity(intent);
 //    }
 
+    /**
+     * Function launching activity of playing
+     * @param view
+     */
     public void play10x10Level(View view) {
         Intent intent = new Intent(this, PlayLevel.class);
         startActivity(intent);
     }
 
+    /**
+     * Function launching activity of displaying rules
+     */
     public void displayRules(View view) {
         Intent intent = new Intent(this, GameRules.class);
         startActivity(intent);
     }
 
+    /**
+     * Function closing Nurikabe
+     * @param view
+     */
     public void exitApplication(View view) {
         finish();
         System.exit(0);

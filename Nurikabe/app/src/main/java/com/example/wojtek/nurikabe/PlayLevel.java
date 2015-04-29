@@ -46,7 +46,7 @@ public class PlayLevel extends ActionBarActivity {
         gridview.setNumColumns(10);
         gridview.setAdapter(fa);
         gridview.setBackgroundColor(Color.BLACK);
-        gridview.setHorizontalSpacing(1);
+        gridview.setHorizontalSpacing(2);
         gridview.setVerticalSpacing(1);
 
 

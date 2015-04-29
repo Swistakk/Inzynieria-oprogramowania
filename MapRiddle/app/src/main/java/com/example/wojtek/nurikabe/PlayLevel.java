@@ -20,7 +20,9 @@ import java.util.List;
 
 import static android.util.Log.d;
 
-
+/**
+ * Class responsible for activity allowing to play in Nurikabe
+ */
 public class PlayLevel extends Activity {
 
     private int free_color = Color.WHITE;
@@ -28,6 +30,11 @@ public class PlayLevel extends Activity {
     private int island_color = Color.parseColor("#FFFF66");
     private int sea_color = Color.parseColor("#33CCFF");
 
+    /**
+     * In onCreate method we create a GameHandler generating board and creates a GridView
+     * representing it
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +61,14 @@ public class PlayLevel extends Activity {
 
 
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            /**
+             * onItemClick changes colors of active fields with regard to rule
+             * free->sea->island->free
+             * @param parent
+             * @param v
+             * @param position
+             * @param id
+             */
             public void onItemClick(AdapterView<?> parent, View v,
                     int position, long id) {
 
@@ -71,6 +86,13 @@ public class PlayLevel extends Activity {
         });
 
     }
+
+    /**
+     * check firstly creates a GameHandler and sets current description of board to that handler.
+     * Then it calls checkBoard method returning a string informing about current
+     * state of board
+     * @param view
+     */
 
     public void check(View view) {
         TextView mes = (TextView) findViewById(R.id.message);

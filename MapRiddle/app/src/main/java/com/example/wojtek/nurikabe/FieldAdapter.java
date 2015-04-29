@@ -16,6 +16,10 @@ import java.util.ArrayList;
 /**
  * Created by wojtek on 26.04.15.
  */
+
+/**
+ * Class allowing to create gridview adjusted to Nurikabe game
+ */
 public class FieldAdapter extends BaseAdapter {
     private int columnsNum;
     private Context context;
@@ -37,6 +41,14 @@ public class FieldAdapter extends BaseAdapter {
         return 0;
     }
 
+    /**
+     * Function taking as parameters side of a board and list
+     * of field with values (in format specified in generateBoard function
+     * in GameHandler class) and appropriately setting contents
+     * of fields which are later passed to gridview
+     * @param side
+     * @param nonZero
+     */
     public void setBoardDesc(int side, ArrayList<Triple> nonZero) {
         columnsNum = side;
         boardDesc = new CharSequence[side * side];
@@ -48,7 +60,13 @@ public class FieldAdapter extends BaseAdapter {
         }
     }
 
-    // create a new ImageView for each item referenced by the Adapter
+    /**
+     * Function returning appropriate textview used in gridview
+     * @param position
+     * @param convertView
+     * @param parent
+     * @return
+     */
     public View getView(int position, View convertView, ViewGroup parent) {
         TextView textView;
 

@@ -8,7 +8,9 @@ import android.view.View;
 
 import com.mapriddle.mapriddle.R;
 
-
+/**
+ * Class responsible for displaying rules
+ */
 public class GameRules extends ActionBarActivity {
 
     @Override
