@@ -9,6 +9,9 @@ import com.mapriddle.mapriddle.R;
 
 import utils.BoardHandler;
 
+/**
+ * This class provide 3x3 level activity
+ */
 public class FirstLevel extends LevelActivity {
 
     private final int SIZE = 80;
@@ -76,6 +79,10 @@ public class FirstLevel extends LevelActivity {
                 R.layout.level1_prompt);
     }
 
+    /**
+     * create 4x4 activity
+     * @param view which invoke method, view is from winning alert
+     */
     public void playNextLevel(View view) {
 
         Intent intent = new Intent(this, SecondLevel.class);
@@ -83,6 +90,10 @@ public class FirstLevel extends LevelActivity {
         finish();
     }
 
+    /**
+     * create 3x3 activity
+     * @param view which invoke method, view is from winning alert
+     */
     public void playSublevel(View view) {
 
         Intent intent = new Intent(this, FirstLevel.class);

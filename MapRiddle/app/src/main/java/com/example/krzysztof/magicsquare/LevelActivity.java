@@ -14,6 +14,9 @@ import java.util.ArrayList;
 
 import utils.BoardHandler;
 
+/**
+ * Abstract class which provide common basic properties of level game activity
+ */
 public abstract class LevelActivity extends Activity {
 
     protected final int STARTX = 45;
@@ -27,6 +30,9 @@ public abstract class LevelActivity extends Activity {
         super.onCreate(savedInstanceState);
     }
 
+    /**
+     * this method dismissing AlertDialog window
+     */
     @Override
     public void onPause() {
 
@@ -36,7 +42,7 @@ public abstract class LevelActivity extends Activity {
         }
     }
 
-    public void addSquresListeners(final ArrayList<EditText> squeres, final Context context,
+    protected void addSquresListeners(final ArrayList<EditText> squeres, final Context context,
                                    final int[] solution, final int resource) {
 
         for(EditText editText : squeres) {
@@ -58,6 +64,10 @@ public abstract class LevelActivity extends Activity {
         }
     }
 
+    /**
+     * this method disables level activity
+     * @param view which invoke method
+     */
     public void backToMenu(View view) {
 
         finish();

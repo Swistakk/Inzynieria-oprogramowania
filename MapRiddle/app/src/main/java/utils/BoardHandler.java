@@ -7,8 +7,20 @@ import android.widget.EditText;
 
 import java.util.ArrayList;
 
+/**
+ * This class provide static method for handling board
+ */
 public class BoardHandler {
 
+    /** Generate board for MagicSquare game
+     * @param viewGroup layout in which board will be generated
+     * @param squeres this list will contain generated squared EditText
+     * @param context activity in which this method is invoked
+     * @param startX x coordinate of left upper board angle
+     * @param startY y coordinate of left upper board angle
+     * @param size size of square
+     * @param resource properties of squared EditText
+     * @param levelKind  size of board*/
     public static void generateBoard(ViewGroup viewGroup,
         ArrayList<EditText> squeres, Context context, int startX, int startY,
         int size, int resource, int levelKind) {
@@ -37,6 +49,11 @@ public class BoardHandler {
         }
     }
 
+    /**
+     * Sets text and Focusable property for every square
+     * @param squeres squares in which this method sets properties
+     * @param startConf gameConfiguration
+     */
     public static void setSqureValues(ArrayList<EditText> squeres ,int[] startConf) {
 
         for (int i = 0; i < squeres.size(); i++) {
@@ -50,6 +67,12 @@ public class BoardHandler {
         }
     }
 
+    /**
+     * check is a end of current game
+     * @param squeres squares of current level
+     * @param solution winning configuration
+     * @return true if squares are in winning configuration
+     */
     public static boolean isEndOfGame(final ArrayList<EditText> squeres, final int[] solution) {
 
         for (int i = 0; i < squeres.size(); i++) {

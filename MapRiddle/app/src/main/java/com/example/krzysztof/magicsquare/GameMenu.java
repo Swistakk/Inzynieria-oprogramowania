@@ -7,7 +7,9 @@ import android.view.View;
 
 import com.mapriddle.mapriddle.R;
 
-//TODO aktywność z obrazkiem jak grać i zbindowanie jej z button'em w menu
+/**
+ * This Activity provide the Main Menu of game
+ */
 public class GameMenu extends Activity {
 
     @Override
@@ -16,21 +18,37 @@ public class GameMenu extends Activity {
         setContentView(R.layout.activity_game_menu);
     }
 
+    /**
+     * this method creates 3x3 game activity
+     * @param view which invoke this method
+     */
     public void play3x3Level(View view) {
         Intent intent = new Intent(this, FirstLevel.class);
         startActivity(intent);
     }
 
+    /**
+     * this method creates 4x4 game activity
+     * @param view which invoke this method
+     */
     public void play4x4Level(View view) {
         Intent intent = new Intent(this, SecondLevel.class);
         startActivity(intent);
     }
 
+    /**
+     * this method creates game rules activity
+     * @param view which invoke this method
+     */
     public void displayRules(View view) {
         Intent intent = new Intent(this, GameRules.class);
         startActivity(intent);
     }
 
+    /**
+     * this method disables application
+     * @param view which invoke this method
+     */
     public void exitApplication(View view) {
         finish();
         System.exit(0);
