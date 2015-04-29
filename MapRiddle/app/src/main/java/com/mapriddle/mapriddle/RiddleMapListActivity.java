@@ -24,15 +24,26 @@ import java.util.List;
  * Created by adam on 25.04.15.
  */
 
+/**
+ * Position in riddle list
+ */
 class RiddlePos{
     private String objectID;
     private String name;
 
+    /**
+     * Constructor
+     * @param o ParseObject representing the riddle
+     */
     public RiddlePos(ParseObject o){
         objectID = o.getObjectId();
         name = o.getString("riddleName");
     }
 
+    /**
+     * Starts playing this riddle
+     * @param context current context
+     */
     public void play(Context context){
         Intent i = new Intent(context, RiddleMapPlayActivity.class);
         i.putExtra("RIDDLE_CODE", objectID);
@@ -45,6 +56,9 @@ class RiddlePos{
     }
 }
 
+/**
+ * Presents a list of available riddles
+ */
 public class RiddleMapListActivity extends Activity {
     private Handler handler = new Handler();
 

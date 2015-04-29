@@ -14,7 +14,7 @@ public class GameRules extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game_rules);
+        setContentView(R.layout.activity_game_rules2);
     }
 
     public void backToMenu(View view) {

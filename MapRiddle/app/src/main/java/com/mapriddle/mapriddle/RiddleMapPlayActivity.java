@@ -1,27 +1,24 @@
 package com.mapriddle.mapriddle;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.parse.GetCallback;
-import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
-import static com.mapriddle.mapriddle.GlobalUtils.showToast;
+import static utils.ToastPresenter.showToast;
 
-
+/**
+ * Presents riddle to the user and allows solving it
+ */
 public class RiddleMapPlayActivity extends Activity {
     private final Handler handler = new Handler();
     private String answer = "faddadfafdsaewfs" + Math.random(); //so nobody can guess the "answer" while downloading riddle
@@ -73,6 +70,10 @@ public class RiddleMapPlayActivity extends Activity {
         return s.toString().toLowerCase().replaceAll("\\s", "");
     }
 
+    /**
+     * Gets user's answer and accepts it or not
+     * @param view view that invoked this method
+     */
     public void answerRiddle(View view){
         if(normalize(((EditText) findViewById(R.id.question_answer_edit)).getText()).equals(normalize(answer))){
             showToast(R.string.question_correct_answer, this);

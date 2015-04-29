@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
-import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -18,13 +17,15 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
-import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.SaveCallback;
 
-import static com.mapriddle.mapriddle.GlobalUtils.showToast;
+import static utils.ToastPresenter.showToast;
 
+/**
+ * Riddle creator
+ */
 public class RiddleMapCreateActivity extends Activity
         implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
     private final Handler handler = new Handler();
@@ -48,6 +49,10 @@ public class RiddleMapCreateActivity extends Activity
         googleApiClient.connect();
     }
 
+    /**
+     * Validates and saves the riddle if possible
+     * @param view view that invoked the method
+     */
     public void saveRiddle(View view){
         if(savingStarted)
             return;
@@ -103,6 +108,10 @@ public class RiddleMapCreateActivity extends Activity
         });
     }
 
+    /**
+     * Gets user location if possible
+     * @param view view that invoked the method
+     */
     public void setLocation(View view){
         if(waitingForLocation && view != null) //called by user second time
             return;
@@ -142,6 +151,10 @@ public class RiddleMapCreateActivity extends Activity
         lastLocation = location;
     }
 
+    /**
+     * Clears location or/and stops getting current location
+     * @param view view that invoked the method
+     */
     public void clearLocation(View view){
         waitingForLocation = false;
         lastLocation = null;

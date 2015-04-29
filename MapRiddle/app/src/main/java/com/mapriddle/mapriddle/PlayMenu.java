@@ -11,7 +11,7 @@ import com.example.wojtek.nurikabe.*;
 import com.example.wojtek.nurikabe.MainActivity;
 
 /**
- * Created by adam on 26.04.15.
+ * A menu listing games
  */
 public class PlayMenu extends Activity{
     @Override
@@ -20,21 +20,37 @@ public class PlayMenu extends Activity{
         setContentView(R.layout.activity_play_menu);
     }
 
+    /**
+     * Opens magic squares
+     * @param view view that invoked the method
+     */
     public void play_magic_squares(View view) {
         Intent i = new Intent(this, GameMenu.class);
         startActivity(i);
     }
 
+    /**
+     * Opens nonograms
+     * @param view view that invoked the method
+     */
     public void play_nonograms(View view) {
         Intent i = new Intent(this, com.example.joanna.nonograms.MainActivity.class);
         startActivity(i);
     }
 
+    /**
+     * Opens nurikabe
+     * @param view view that invoked the method
+     */
     public void play_nurikabe(View view) {
         Intent i = new Intent(this, com.example.wojtek.nurikabe.MainActivity.class);
         startActivity(i);
     }
 
+    /**
+     * Opens a list of riddles
+     * @param view view that invoked the method
+     */
     public void play_riddles(View view) {
         Intent i = new Intent(this, RiddleMapListActivity.class);
         startActivity(i);

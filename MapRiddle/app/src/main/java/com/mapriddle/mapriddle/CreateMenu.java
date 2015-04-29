@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 /**
- * Created by adam on 26.04.15.
+ * Activity presenting list of games that can be created by users. Currently it has only one option, so it is chosen automatically.
  */
 public class CreateMenu extends Activity{
 
@@ -18,7 +18,10 @@ public class CreateMenu extends Activity{
 
     }
 
-
+    /**
+     * Starts riddle creator
+     * @param view view that invoked this method
+     */
     public void create_riddle(View view) {
         Intent i = new Intent(this, RiddleMapCreateActivity.class);
         startActivity(i);
