@@ -42,4 +42,9 @@ Twoim celem jest zaznaczenie wysp na morzu. Do każdej wyspy ma należeć dokła
 </string>
     <string name="title_activity_play_level">PlayLevel</string>
 
+    <string name="title_activity_second_level">SecondLevel</string>
+    <string name="title_activity_game_menu">GameMenu</string>
+    <string name="title_activity_level">LevelActivity</string>
+    <string name="nonograms_app_name">Nonogramy</string>
+
 </resources>
