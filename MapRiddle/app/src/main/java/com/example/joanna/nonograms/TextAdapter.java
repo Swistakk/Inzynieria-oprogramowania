@@ -16,11 +16,14 @@ import static java.lang.StrictMath.min;
  * Created by joanna on 21.04.15.
  */
 public class TextAdapter extends BaseAdapter {
-    private static final int COLUMN_NR = 13 ;
+
+    private int columnNr = 14 ;
     private Context mContext;
+    private CharSequence[] mThumbIds;
 
     public TextAdapter(Context c) {
         mContext = c;
+        mThumbIds = createBoard();
     }
 
     public int getCount() {
@@ -35,7 +38,9 @@ public class TextAdapter extends BaseAdapter {
         return 0;
     }
 
-    // create a new ImageView for each item referenced by the Adapter
+    /**
+     * create a new TextView for each item referenced by the Adapter
+      */
     public View getView(int position, View convertView, ViewGroup parent) {
         TextView textView;
 
@@ -43,7 +48,7 @@ public class TextAdapter extends BaseAdapter {
         int width = metrics.widthPixels;
         int height = metrics.heightPixels;
 
-        int size = min(width, height) / 13 - 1;
+        int size = min(width, height) / columnNr - 1;
 
         if (convertView == null) {
             // if it's not recycled, initialize some attributes
@@ -56,17 +61,24 @@ public class TextAdapter extends BaseAdapter {
         }
 
         textView.setText(mThumbIds[position]);
-        int x = position % COLUMN_NR;
-        int y = (position - x) / COLUMN_NR + 1;
+        int x = position % columnNr;
+        int y = (position - x) / columnNr + 1;
 
-        if ((x > COLUMN_NR - 11) && (y > COLUMN_NR - 10)) {
+        if ((x > columnNr - 11) && (y > columnNr - 10)) {
             textView.setBackgroundColor(Color.GRAY);
         }
         return textView;
     }
 
     // references to our images
-    protected CharSequence[] mThumbIds = {
+    private CharSequence[] createBoard() {
+        GameCreator gameCreator = new GameCreator(10, 1);
+        columnNr = gameCreator.getTotalSize();
+        CharSequence[] cs = new CharSequence[columnNr * columnNr];
+        cs = gameCreator.generateCellList();
+        return cs;
+    }
+            /*{
             "", "", "", "", "", "",  "2",  "",  "", "2",  "", "", "",
             "", "", "", "", "", "3", "2", "5", "5", "2", "3", "", "",
             "", "", "",  "", "4", "2", "2", "2", "2", "2", "2", "4", "",
@@ -80,7 +92,7 @@ public class TextAdapter extends BaseAdapter {
             "", "", "6", "", "", "", "", "", "", "", "", "", "",
             "", "", "4", "", "", "", "", "", "", "", "", "", "",
             "", "", "", "", "", "", "", "", "", "", "", "", "",
-    };
+    };*/
 
     public int[] getSolution = {
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0,

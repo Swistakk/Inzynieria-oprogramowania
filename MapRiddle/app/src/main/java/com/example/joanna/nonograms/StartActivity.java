@@ -17,7 +17,7 @@ import com.mapriddle.mapriddle.R;
 public class StartActivity extends ActionBarActivity {
 
     private static final int BOARD_HEIGHT = 10;
-    private static final int COLUMN_NR = 13;
+    private static final int COLUMN_NR = 14;
     private static final int BOARD_WIDTH = 10;
 
     private int mark_color = Color.parseColor("#ab47bc");
@@ -98,8 +98,8 @@ public class StartActivity extends ActionBarActivity {
         //startActivity(intent);
         int s = 0;
         GridView gridview = (GridView) findViewById(R.id.grid);
-        for (int i = 3; i < 13; i++) {
-            for (int j = 3; j < 13; j++) {
+        for (int i = 3; i < 14; i++) {
+            for (int j = 3; j < 14; j++) {
                 int k = i * COLUMN_NR + j;
                 TextView tv = (TextView) gridview.getChildAt(k);
 
