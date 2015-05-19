@@ -10,11 +10,12 @@ public class GameCreator {
     /**
      * if board[i][j] == 1 then the cell should be painted
      */
-    private int size;
+    private int size; // active board's size
     private int[][] board;
     private int[][] listV;
-    private int numberArrayHeight;
     private int[][] listH;
+    private int numberingArrayHeight; // > 0
+    private CharSequence[] cellList;
 
     private void generateRandomBoard(int seed) {
         Random rand = new Random();
@@ -28,93 +29,139 @@ public class GameCreator {
         }
     }
 
+    private void align() {
+        for (int i = 0; i < size; i++) {
+            for (int j = numberingArrayHeight - 1; j >= 0; j--) {
+                /* vertical */
+                int k = j;
+                while (listV[k][i] == 0 && k > 0) {
+                    k--;
+                }
+                if (k != j) {
+                    listV[j][i] = listV[k][i];
+                    listV[k][i] = 0;
+                }
+                /* horizontal */
+                k = j;
+                while (listH[i][k] == 0 && k > 0) {
+                    k--;
+                }
+                if (k != j) {
+                    listH[i][j] = listH[i][k];
+                    listH[i][k] = 0;
+                }
+            }
+        }
+    }
+    /* count painted cells in every column and every row */
     private void count() {
-        listV = new int[(size+1)/2][size]; // maximum number of numbers in column is (n+1)/2
-        listH = new int[size][(size+1)/2]; // maximum number of numbers in row is (n+1)/2
-        numberArrayHeight = 0;
+        listV = new int[(size+1)/2][size]; // vertical list - maximum number of numbers in column is (n+1)/2
+        listH = new int[size][(size+1)/2]; // horizontal list - maximum number of numbers in row is (n+1)/2
+        numberingArrayHeight = 0;
         for (int i = 0; i < size; i++) {
             int counterV = 0, counterH = 0, lastH = 0, lastV = 0;
-            int column = 0, row = 0;
+            int column = 0, row = 0; //in which column/row of listH/listV we are
             for (int j = 0; j < size; j++) {
                 /* vertical */
-                if (board[i][j] == 0 && lastV == 1) {
+                if (board[i][j] == 0 && lastV == 1) { // ...1 0...
                         lastV = 0;
                         listV[row][i] = counterV;
                         row++;
                         counterV = 0;
                 } else {
-                    if (board[i][j] == 1) {
+                    if (board[i][j] == 1) { // ...1..
                         lastV = 1;
                         counterV++;
                     }
                 }
                 /* horizontal */
-                if (board[j][i] == 0 && lastH == 1) {
+                if (board[j][i] == 0 && lastH == 1) { //...10...
                     lastH = 0;
                     listH[i][column] = counterH;
                     column++;
                     counterH = 0;
                 } else {
-                    if (board[j][i] == 1) {
+                    if (board[j][i] == 1) { // ...1...
                         lastH = 1;
                         counterH++;
                     }
                 }
+            } // for
+            if (counterV != 0) {
+                listV[row][i] = counterV;
+                row++;
             }
-            listV[row][i] = counterV;
-            row++;
-            listH[i][column] = counterH;
-            column++;
-            numberArrayHeight = Math.max(numberArrayHeight, row);
-            numberArrayHeight = Math.max(numberArrayHeight, column);
-        }
+            if (counterH != 0) {
+                listH[i][column] = counterH;
+                column++;
+            }
+            numberingArrayHeight = Math.max(numberingArrayHeight, row);
+            numberingArrayHeight = Math.max(numberingArrayHeight, column);
+        } // for
+        align();
+        //Log.d("numberingArrayHeight", Integer.toString(numberingArrayHeight));
+        //Log.d("tag", Integer.toString(numberingArrayHeight));
     }
 
     GameCreator(int size, int seed) {
         this.size = size;
         generateRandomBoard(seed);
         count();
+        generateCellList();
+    }
+
+    GameCreator(int size, int[][] paintedBoard) {
+        this.size = size;
+        board = new int[size][size];
+        board = paintedBoard;
+        count();
+        generateCellList();
     }
 
     public int getTotalSize() {
-        return size + numberArrayHeight;
+        return size + numberingArrayHeight;
+    }
+    public CharSequence[] getCellList() {
+        return cellList;
+    }
+    public int getCellListLength() {
+        return cellList.length;
     }
 
-    public CharSequence[] generateCellList() {
-        int boardSize = size + numberArrayHeight;
-        CharSequence[] cellList = new CharSequence[boardSize * boardSize];
+    private void generateCellList() {
+        int boardSize = size + numberingArrayHeight;
+        cellList = new CharSequence[boardSize * boardSize];
         int k = 0;
-        /* vertical */
-        for (int i = 0; i < numberArrayHeight; i++) {
+        /* vertical numbering array */
+        for (int i = 0; i < numberingArrayHeight; i++) {
 
-            for (int l = 0; l < numberArrayHeight; l++) {
+            for (int l = 0; l < numberingArrayHeight; l++) { // empty cells in upper left-hand part of the board
                 cellList[k] = "";
                 k++;
             }
             for (int j = 0; j < size; j++) {
-                if (listH[j][i] == 0)
+                if (listV[i][j] == 0)
                     cellList[k] = "";
                 else
-                    cellList[k] = Integer.toString(listH[j][i]);
+                    cellList[k] = Integer.toString(listV[i][j]);
                 k++;
             }
         }
-        /* horizontal */
+        /* horizontal numbering array */
         for (int i = 0; i < size; i++) {
 
-            for (int l = 0; l < numberArrayHeight; l++) {
-                if (listV[l][i] == 0)
+            for (int l = 0; l < numberingArrayHeight; l++) {
+                if (listH[i][l] == 0)
                     cellList[k] = "";
                 else
-                    cellList[k] = Integer.toString(listV[l][i]);
+                    cellList[k] = Integer.toString(listH[i][l]);
                 k++;
             }
-            for (int j = 0; j < size; j++) {
+            for (int j = 0; j < size; j++) { // empty cells on the playing board
                 cellList[k] = "";
                 k++;
             }
         }
-        return cellList;
     }
 
 }

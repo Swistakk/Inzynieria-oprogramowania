@@ -16,51 +16,54 @@ import com.mapriddle.mapriddle.R;
 
 public class StartActivity extends ActionBarActivity {
 
-    private static final int BOARD_HEIGHT = 10;
-    private static final int COLUMN_NR = 14;
-    private static final int BOARD_WIDTH = 10;
-
-    private int mark_color = Color.parseColor("#ab47bc");
-    private int free_color = Color.WHITE;
-    //private int background_color = Color.parseColor("#ffc107");
-    private int board_color = Color.GRAY;
-
-    private int[] solution;
+    private int boardSize;
+    private int cellBorder;
+    private int activeBoardSize;
+    private int boardColor;
+    private int markColor;
+    private int emptyColor;
+    private CharSequence[] previousCellList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
+        cellBorder = 2;
+        activeBoardSize = 10;
+
+        CellAdapter cellAdapter = new CellAdapter(this, activeBoardSize, cellBorder); // board size,cell border
+        boardSize = cellAdapter.getSize();
+        markColor = cellAdapter.getMarkColor();
+        boardColor = cellAdapter.getBoardColor();
+        emptyColor = cellAdapter.getEmptyColor();
+        previousCellList = cellAdapter.getCellList();
+
         GridView gridview = (GridView) findViewById(R.id.grid);
-        TextAdapter ta = new TextAdapter(this);
-        gridview.setAdapter(ta);
-        solution = ta.getSolution;
-        gridview.setNumColumns(COLUMN_NR);
+        gridview.setAdapter(cellAdapter);
+        gridview.setNumColumns(boardSize);
         gridview.setBackgroundColor(Color.BLACK);
-        gridview.setHorizontalSpacing(1);
-        gridview.setVerticalSpacing(1);
-
-
+        gridview.setHorizontalSpacing(cellBorder);
+        gridview.setVerticalSpacing(cellBorder);
 
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-                int x = position % COLUMN_NR;
-                int y = (position - x) / COLUMN_NR + 1;
-
-                if ((x > COLUMN_NR - BOARD_WIDTH - 1) && (y > COLUMN_NR - BOARD_HEIGHT)) {
+                int x = position % boardSize;
+                int y = (position - x) / boardSize;
+                int framesSize = boardSize - activeBoardSize - 1;
+                if ((x > framesSize) && (y > framesSize)) {
 
                     ColorDrawable cd = (ColorDrawable) v.getBackground();
                     int current = cd.getColor();
 
-                    if (current == board_color) {
-                        v.setBackgroundColor(mark_color);
+                    if (current == boardColor) {
+                        v.setBackgroundColor(markColor);
                     } else {
-                        if (current == mark_color) {
-                            v.setBackgroundColor(free_color);
+                        if (current == markColor) {
+                            v.setBackgroundColor(emptyColor);
                         } else {
-                            v.setBackgroundColor(board_color);
+                            v.setBackgroundColor(boardColor);
                         }
                     }
                 }
@@ -91,35 +94,50 @@ public class StartActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-    public void check(View view) {
-        // Do something in response to button
-        //Intent intent = new Intent(this, StartActivity.class);
-        //startActivity(intent);
-        int s = 0;
+    /** change the active board in the cell sequence and compere it to the previous version,
+     *  return true if they are identical and false otherwise
+     */
+    private boolean checkBoard() {
+        int[][] paintedBoard = new int[activeBoardSize][activeBoardSize];
         GridView gridview = (GridView) findViewById(R.id.grid);
-        for (int i = 3; i < 14; i++) {
-            for (int j = 3; j < 14; j++) {
-                int k = i * COLUMN_NR + j;
+        int frameSize = boardSize - activeBoardSize;
+        for (int i = 0; i < activeBoardSize; i++) {
+            for (int j = 0; j < activeBoardSize; j++) {
+                int k = (i + frameSize) * boardSize + j + frameSize;
                 TextView tv = (TextView) gridview.getChildAt(k);
 
                 ColorDrawable cd = (ColorDrawable) tv.getBackground();
                 int current = cd.getColor();
-                if (((current == mark_color) && (solution[s] == 1)) ||
-                        (((current == board_color) || (current == free_color)) && (solution[s] == 0))) {
-                    if (s == 99) {
-                        TextView mes = (TextView) findViewById(R.id.message);
-                        mes.setVisibility(TextView.VISIBLE);
-                        mes.setText("    Congratulations! You win!    ");
-                    }
+                if (current == markColor) {
+                    paintedBoard[j][i] = 1;
                 } else {
-                    TextView mes = (TextView) findViewById(R.id.message);
-                    mes.setVisibility(TextView.VISIBLE);
-                    mes.setText("    Sorry! Try again!    ");
-                    break;
+                    paintedBoard[j][i] = 0;
                 }
-                s++;
             }
+        }
+        GameCreator gc = new GameCreator(activeBoardSize, paintedBoard);
+        CharSequence[] checkedCellList = gc.getCellList();
+        for (int i = 0; i < previousCellList.length; i++) {
+            if (previousCellList[i] != checkedCellList[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * check the correctness of filling board and show right message
+     * @param view
+     */
+    public void check(View view) {
+        if (checkBoard()) {
+            TextView mes = (TextView) findViewById(R.id.message);
+            mes.setVisibility(TextView.VISIBLE);
+            mes.setText("    Congratulations! You win!    ");
+        } else {
+            TextView mes = (TextView) findViewById(R.id.message);
+            mes.setVisibility(TextView.VISIBLE);
+            mes.setText("    Sorry! Try again!    ");
         }
 
     }
