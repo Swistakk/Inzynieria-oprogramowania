@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mapriddle.mapriddle">
+    package="com.mapriddle.mapriddle" >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -11,7 +11,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme" >
         <activity
             android:name="com.example.joanna.nonograms.StartActivity"
             android:label="@string/title_activity_start"
@@ -35,11 +35,11 @@
             android:label="@string/title_activity_game_rules" />
         <activity
             android:name="com.example.wojtek.nurikabe.MainActivity"
-            android:label="@string/app_name"/>
+            android:label="@string/app_name" />
         <activity
             android:name="com.example.wojtek.nurikabe.DisplayMessageActivity"
             android:label="@string/title_activity_display_message"
-            android:parentActivityName="com.example.wojtek.nurikabe.MainActivity">
+            android:parentActivityName="com.example.wojtek.nurikabe.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.wojtek.nurikabe.MainActivity" />
@@ -47,7 +47,7 @@
         <activity
             android:name="com.example.wojtek.nurikabe.GameRules"
             android:label="@string/title_activity_game_rules"
-            android:parentActivityName="com.example.wojtek.nurikabe.MainActivity">
+            android:parentActivityName="com.example.wojtek.nurikabe.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.wojtek.nurikabe.MainActivity" />
@@ -55,7 +55,7 @@
         <activity
             android:name="com.example.wojtek.nurikabe.PlayLevel"
             android:label="@string/title_activity_play_level"
-            android:parentActivityName="com.example.wojtek.nurikabe.MainActivity">
+            android:parentActivityName="com.example.wojtek.nurikabe.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.wojtek.nurikabe.MainActivity" />
@@ -77,11 +77,16 @@
             android:label="@string/app_name" />
         <activity
             android:name=".MainMenu"
-            android:label="@string/app_name">
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.joanna.nonograms.RulesActivity"
+            android:label="@string/title_activity_rules" >
         </activity>
     </application>
 

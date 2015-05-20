@@ -27,7 +27,7 @@ public class StartActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_start);
+        setContentView(R.layout.nonograms_activity_start);
 
         cellBorder = 2;
         activeBoardSize = 10;
@@ -140,6 +140,18 @@ public class StartActivity extends ActionBarActivity {
             mes.setText("    Sorry! Try again!    ");
         }
 
+    }
+
+    public void clear(View view) {
+        GridView gridview = (GridView) findViewById(R.id.grid);
+        int frameSize = boardSize - activeBoardSize;
+        for (int i = frameSize; i < boardSize; i++) {
+            for (int j = frameSize; j < boardSize; j++) {
+                int k = i * boardSize + j;
+                TextView tv = (TextView) gridview.getChildAt(k);
+                tv.setBackgroundColor(boardColor);
+            }
+        }
     }
 }
 

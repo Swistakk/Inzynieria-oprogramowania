@@ -1,0 +1,19 @@
+<resources>
+    <string name="button_start">Start</string>
+    <string name="button_rules">Rules</string>
+    <string name="button_quit">Quit</string>
+    <string name="button_clear">Clear</string>
+    <string name="button_check">Check</string>
+    <string name="nonograms_rules_heading">Zasady gry</string>
+    <string name="nonograms_rules_text_1">Twoim zadaniem jest odkrycie pierwotnego wyglądu planszy,
+        a dokładniej pól, które były na niej zamalowane kolorem zielonym. Pomogą Ci w tym liczby
+        umieszczone w wierszach i kolumnach: każda sekwencja opisuje długości kolejnych grup
+        zamalowanych pól oddzielonych jednym lub większą liczbą pustych komórek. Przykładowo taki wiersz:
+    </string>
+    <string name="nonograms_rules_text_2">może mieć następujące rozwiązanie:</string>
+    <string name="nonograms_rules_text_3">lub</string>
+    <string name="nonograms_rules_text_4">lub jeszcze kilka innych. W wybraniu odpowiedniego pomagają
+        cyfry w kolumnach. Jeżeli klikniesz raz na wolne pole to jego kolor zmieni się na zielony,
+        kolejne kliknięcie zmieni jego kolor na biały - możesz w ten sposób oznaczać pola, które
+        uważasz, że będą puste. Kolejne kliknięcie spowoduje powrót do wyjściowego koloru.</string>
+</resources>

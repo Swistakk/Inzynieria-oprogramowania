@@ -9,7 +9,6 @@
         android:id="@+id/grid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/menu"
         android:columnWidth="0dp"
         android:numColumns="auto_fit"
         android:verticalSpacing="1dp"
@@ -23,15 +22,24 @@
         android:id="@+id/menu"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/grid"
         android:background="@color/background_material_dark"
         android:gravity="left"
         >
 
         <Button
+            android:id="@+id/clear_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_clear"
+            android:onClick="clear"
+            />
+
+        <Button
             android:id="@+id/check_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Check"
+            android:text="@string/button_check"
             android:onClick="check"
             />
 

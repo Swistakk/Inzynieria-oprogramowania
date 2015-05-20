@@ -21,7 +21,7 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.nonograms_activity_main);
     }
 
 
@@ -54,8 +54,14 @@ public class MainActivity extends ActionBarActivity {
         startActivity(intent);
 
     }
+    /** Called when the user clicks the Quit button */
     public void quit(View view) {
         finish();
         System.exit(0);
+    }
+    /** Called when the user clicks the Rules button */
+    public void showRules(View view)  {
+        Intent intent = new Intent(this, RulesActivity.class);
+        startActivity(intent);
     }
 }
