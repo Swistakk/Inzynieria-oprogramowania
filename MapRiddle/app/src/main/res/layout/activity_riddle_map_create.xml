@@ -29,32 +29,33 @@
         android:hint="@string/question_answer_edit_hint"
         android:inputType="text"
         android:layout_weight="0"/>
-    <!--<LinearLayout-->   <!--TODO uncomment to enable location obtainer-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:orientation="horizontal"-->
-        <!--android:layout_weight="0">-->
-        <!--<Button-->
-            <!--android:id="@+id/question_set_location"-->
-            <!--android:text="@string/question_set_location_text"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_weight="0.5"-->
-            <!--android:onClick="setLocation"/>-->
-        <!--<Button-->
-            <!--android:id="@+id/question_clear_location"-->
-            <!--android:text="@string/question_clear_location_text"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_weight="0.5"-->
-            <!--android:onClick="clearLocation"/>-->
-        <!--</LinearLayout>-->
-    <!--<TextView-->
-        <!--android:id="@+id/question_location_state"-->
-        <!--android:text="@string/question_no_location"-->
-        <!--android:layout_width="fill_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_weight="0"/>-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="0">
+        <Button
+            android:id="@+id/question_set_location"
+            android:text="@string/question_set_location_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:onClick="setLocation"/>
+        <Button
+            android:id="@+id/question_clear_location"
+            android:text="@string/question_clear_location_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:onClick="clearLocation"/>
+        </LinearLayout>
+    <TextView
+        android:id="@+id/question_location_state"
+        android:text="@string/question_no_location"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:gravity="center"/>
     <Button
         android:id="@+id/question_save"
         android:text="@string/question_save_text"
