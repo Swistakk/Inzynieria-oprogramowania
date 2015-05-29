@@ -70,7 +70,7 @@
             android:name=".RiddleMapListActivity"
             android:label="@string/app_name" />
         <activity
-            android:name=".CreateMenu"
+            android:name=".CreateRiddleMenu"
             android:label="@string/app_name" />
         <activity
             android:name=".PlayMenu"
@@ -87,6 +87,14 @@
         <activity
             android:name="com.example.joanna.nonograms.RulesActivity"
             android:label="@string/title_activity_rules" >
+        </activity>
+        <activity
+            android:name=".CreateMenu"
+            android:label="@string/title_activity_menu_create" >
+        </activity>
+        <activity
+            android:name=".CreatePrizeMenu"
+            android:label="@string/title_activity_create_prize_menu" >
         </activity>
     </application>
 
