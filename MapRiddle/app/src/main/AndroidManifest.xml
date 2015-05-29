@@ -88,6 +88,14 @@
             android:name="com.example.joanna.nonograms.RulesActivity"
             android:label="@string/title_activity_rules" >
         </activity>
+        <activity
+            android:name="com.example.wojtek.nurikabe.SetParams"
+            android:label="@string/title_activity_set_params"
+            android:parentActivityName="com.example.wojtek.nurikabe.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.wojtek.nurikabe.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

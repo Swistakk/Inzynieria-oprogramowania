@@ -143,7 +143,7 @@ public class GameHandler {
                 sz += dfs(nr, nc, ty);
             }
         }
-        return sz;
+        return sz - board[a][b].number;
     }
 
     /**
@@ -257,6 +257,13 @@ public class GameHandler {
                         return "Istnieje wyspa ze złą liczbą pól!";
                     }
                     area -= sz;
+                }
+            }
+        }
+        for (int r = 1; r <= n; r++) {
+            for (int c = 1; c <= n; c++) {
+                if (board[r][c].type == 1 && vis[r][c] != 0) {
+                    return "Istnieje wyspa bez liczby!";
                 }
             }
         }

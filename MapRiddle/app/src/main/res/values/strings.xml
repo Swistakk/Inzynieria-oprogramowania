@@ -46,5 +46,6 @@ Twoim celem jest zaznaczenie wysp na morzu. Do każdej wyspy ma należeć dokła
     <string name="title_activity_level">LevelActivity</string>
     <string name="nonograms_app_name">Nonogramy</string>
     <string name="title_activity_rules">RulesActivity</string>
+    <string name="title_activity_set_params">SetParams</string>
 
 </resources>
