@@ -39,7 +39,7 @@ public class RiddleMapCreateActivity extends Activity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_riddle_map_create);
- //       locationState = (TextView) findViewById(R.id.question_location_state); //TODO uncomment to enable location obtainer
+        locationState = (TextView) findViewById(R.id.question_location_state);
 
         googleApiClient = new GoogleApiClient.Builder(this)
                 .addApi(LocationServices.API)
@@ -53,9 +53,14 @@ public class RiddleMapCreateActivity extends Activity
      * Validates and saves the riddle if possible
      * @param view view that invoked the method
      */
-    public void saveRiddle(View view){
-        if(savingStarted)
+    public synchronized void saveRiddle(View view){
+        if (savingStarted)
             return;
+        if(waitingForLocation) {
+            showToast(R.string.question_obtaining_location, getApplicationContext());
+            return;
+        }
+        savingStarted = true;
 
         CharSequence riddleName = ((EditText) findViewById(R.id.question_edit)).getText();
         CharSequence riddleText = ((EditText) findViewById(R.id.question_body_edit)).getText();
@@ -70,12 +75,15 @@ public class RiddleMapCreateActivity extends Activity
         int duration = Toast.LENGTH_SHORT;
         Toast toast = Toast.makeText(context, text, duration);
         toast.show();
-        savingStarted = true;
 
         final ParseObject riddle = new ParseObject("RIDDLE");
         riddle.put("riddleName", riddleName.toString());
         riddle.put("riddleText", riddleText.toString());
         riddle.put("riddleAnswer", riddleAnswer.toString());
+        if(lastLocation != null) {
+            riddle.put("riddleLatitude", lastLocation.getLatitude());
+            riddle.put("riddleLongitude", lastLocation.getLongitude());
+        }
         riddle.saveInBackground(new SaveCallback() {
             public void done(ParseException e) {
                 if (e == null) {
@@ -112,7 +120,9 @@ public class RiddleMapCreateActivity extends Activity
      * Gets user location if possible
      * @param view view that invoked the method
      */
-    public void setLocation(View view){
+    public synchronized void setLocation(View view){
+        if(savingStarted)
+            return;
         if(waitingForLocation && view != null) //called by user second time
             return;
         if(!waitingForLocation && view == null) { //called by handler, but user-cancelled
@@ -141,6 +151,8 @@ public class RiddleMapCreateActivity extends Activity
 
     @Override
     public void onLocationChanged(Location location) {
+        if(savingStarted)
+            return;
         locationState.setText(locationState.getText()+".");
         if((location.hasAccuracy() && location.getAccuracy() <= 10)
             || (lastLocation != null && location.distanceTo(lastLocation) <= 10)){
@@ -156,6 +168,8 @@ public class RiddleMapCreateActivity extends Activity
      * @param view view that invoked the method
      */
     public void clearLocation(View view){
+        if(savingStarted)
+            return;
         waitingForLocation = false;
         lastLocation = null;
         locationState.setText(getResources().getString(R.string.question_no_location));
