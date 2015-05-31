@@ -10,6 +10,9 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import static java.lang.StrictMath.min;
 
 /**
@@ -95,7 +98,12 @@ public class CellAdapter extends BaseAdapter {
 
     /* references to our cells */
     private CharSequence[] createBoard() {
-        GameCreator gameCreator = new GameCreator(activeBoardSize, 4);
+        Calendar cal = Calendar.getInstance();
+        cal.getTime();
+        SimpleDateFormat sdf = new SimpleDateFormat("S");
+        int seed = Integer.parseInt(sdf.format(cal.getTime()));
+
+        GameCreator gameCreator = new GameCreator(activeBoardSize, seed);
         size = gameCreator.getTotalSize();
         return gameCreator.getCellList();
     }

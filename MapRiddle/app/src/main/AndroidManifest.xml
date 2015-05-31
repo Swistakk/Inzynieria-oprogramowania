@@ -70,7 +70,7 @@
             android:name=".RiddleMapListActivity"
             android:label="@string/app_name" />
         <activity
-            android:name=".CreateMenu"
+            android:name=".CreateRiddleMenu"
             android:label="@string/app_name" />
         <activity
             android:name=".PlayMenu"
@@ -95,6 +95,14 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.wojtek.nurikabe.MainActivity" />
+        </activity>
+        <activity
+            android:name=".CreateMenu"
+            android:label="@string/title_activity_menu_create" >
+        </activity>
+        <activity
+            android:name=".CreatePrizeMenu"
+            android:label="@string/title_activity_create_prize_menu" >
         </activity>
     </application>
 
