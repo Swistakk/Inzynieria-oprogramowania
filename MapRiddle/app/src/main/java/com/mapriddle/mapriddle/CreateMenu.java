@@ -7,6 +7,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.scenarios.ScenarioCreator;
+
 
 public class CreateMenu extends ActionBarActivity {
 
@@ -45,6 +47,11 @@ public class CreateMenu extends ActionBarActivity {
 
     public void createPrize(View view) {
         Intent i = new Intent(this, CreatePrizeMenu.class);
+        startActivity(i);
+    }
+
+    public void createScenario(View view) {
+        Intent i = new Intent(this, ScenarioCreator.class);
         startActivity(i);
     }
 }

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/task0"
+        android:text="@string/no_task"
+        android:textSize="20dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:onClick="taskClicked"
+        android:clickable="true"/>
+    <TextView
+        android:id="@+id/task1"
+        android:text="@string/no_task"
+        android:textSize="20dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:onClick="taskClicked"
+        android:clickable="true"/>
+    <TextView
+        android:id="@+id/task2"
+        android:text="@string/no_task"
+        android:textSize="20dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:onClick="taskClicked"
+        android:clickable="true"/>
+    <TextView
+        android:id="@+id/task3"
+        android:text="@string/no_task"
+        android:textSize="20dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:onClick="taskClicked"
+        android:clickable="true"/>
+    <TextView
+        android:id="@+id/task4"
+        android:text="@string/no_task"
+        android:textSize="20dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:onClick="taskClicked"
+        android:clickable="true"/>
+
+
+    <Button
+        android:id="@+id/scenario_save"
+        android:text="@string/scenario_save_text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:onClick="saveScenario"/>
+
+    <TextView
+        android:id="@+id/scenario_id"
+        android:text=""
+        android:textSize="20dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+
+</LinearLayout>

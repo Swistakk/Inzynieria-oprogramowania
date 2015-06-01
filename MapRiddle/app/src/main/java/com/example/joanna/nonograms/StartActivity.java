@@ -1,5 +1,6 @@
 package com.example.joanna.nonograms;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -134,6 +135,10 @@ public class StartActivity extends ActionBarActivity {
             TextView mes = (TextView) findViewById(R.id.message);
             mes.setVisibility(TextView.VISIBLE);
             mes.setText("    Congratulations! You win!    ");
+            if(getIntent().getExtras().getBoolean("INFO_PLEASE")){
+                setResult(RESULT_OK, new Intent());
+                finish();
+            }
         } else {
             TextView mes = (TextView) findViewById(R.id.message);
             mes.setVisibility(TextView.VISIBLE);

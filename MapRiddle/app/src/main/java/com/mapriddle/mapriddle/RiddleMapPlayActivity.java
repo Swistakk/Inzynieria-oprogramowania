@@ -159,11 +159,11 @@ public class RiddleMapPlayActivity extends Activity
         TextView textView = (TextView) findViewById(R.id.riddle_location);
         if(dist > 1000)
             textView.setText(R.string.question_far_away);
-        else if(dist > 200)
+        else if(dist > 100)
             textView.setText(R.string.question_rather_far);
-        else if(dist > 50)
+        else if(dist > 20)
             textView.setText(R.string.question_closer);
-        else if(dist > 10){
+        else{
             textView.setText(R.string.question_reached);
             locationReached = true;
         }
