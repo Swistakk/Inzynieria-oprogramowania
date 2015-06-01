@@ -60,5 +60,8 @@ Twoim celem jest zaznaczenie wysp na morzu. Do każdej wyspy ma należeć dokła
     <string name="no_task">Brak zadania (dotknij aby utworzyć)</string>
     <string name="button_create_scenario">Twórz scenariusz</string>
     <string name="scenario_save_text">Zapisz scenariusz</string>
+    <string name="title_activity_load_game">LoadGame</string>
+
+    <string name="button_load_picture">Load Picture</string>
 
 </resources>
