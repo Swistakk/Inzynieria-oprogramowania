@@ -29,6 +29,8 @@ public class PlayLevel extends Activity {
     //private int background_color = Color.parseColor("#ffc107");
     private int island_color = Color.parseColor("#FFFF66");
     private int sea_color = Color.parseColor("#33CCFF");
+    private int side;
+
 
     /**
      * In onCreate method we create a GameHandler generating board and creates a GridView
@@ -40,8 +42,12 @@ public class PlayLevel extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_level);
 
-        GameHandler handler = new GameHandler(10);
-        ArrayList<Triple> islands = handler.generateBoard(23);
+        Bundle b = getIntent().getExtras();
+        side = b.getInt("side");
+        int seed = b.getInt("seed");
+
+        GameHandler handler = new GameHandler(side);
+        ArrayList<Triple> islands = handler.generateBoard(seed);
         for (Triple tr : islands) {
             System.out.println(tr.st + " " + tr.nd + " " + tr.rd);
         }
@@ -52,8 +58,8 @@ public class PlayLevel extends Activity {
 
         GridView gridview = (GridView) findViewById(R.id.grid);
         FieldAdapter fa = new FieldAdapter(this);
-        fa.setBoardDesc(10, islands);
-        gridview.setNumColumns(10);
+        fa.setBoardDesc(side, islands);
+        gridview.setNumColumns(side);
         gridview.setAdapter(fa);
         gridview.setBackgroundColor(Color.BLACK);
         gridview.setHorizontalSpacing(1);
@@ -98,11 +104,11 @@ public class PlayLevel extends Activity {
         TextView mes = (TextView) findViewById(R.id.message);
         mes.setVisibility(TextView.VISIBLE);
         GridView gridview = (GridView) findViewById(R.id.grid);
-        GameHandler handler = new GameHandler(10);
+        GameHandler handler = new GameHandler(side);
         boolean ok = true;
-        for (int r = 0; r < 10; r++) {
-            for (int c = 0; c < 10; c++) {
-                int pos = r * 10 + c;
+        for (int r = 0; r < side; r++) {
+            for (int c = 0; c < side; c++) {
+                int pos = r * side + c;
                 TextView tv = (TextView) gridview.getChildAt(pos);
                 ColorDrawable cd = (ColorDrawable) tv.getBackground();
                 int current = cd.getColor();

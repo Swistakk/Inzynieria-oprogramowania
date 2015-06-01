@@ -60,8 +60,8 @@ public class MainActivity extends Activity {
      * Function launching activity of playing
      * @param view
      */
-    public void play10x10Level(View view) {
-        Intent intent = new Intent(this, PlayLevel.class);
+    public void play(View view) {
+        Intent intent = new Intent(this, SetParams.class);
         startActivity(intent);
     }
 

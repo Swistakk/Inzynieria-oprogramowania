@@ -103,13 +103,22 @@ public class GameHandler {
      * @param b
      * @return
      */
-    private boolean hasSeaNei(int a, int b) {
+//    private boolean hasSeaNei(int a, int b) {
+//        for (int dir = 0; dir < 4; dir++) {
+//            if (board[a + ddr[dir]][b + ddc[dir]].type == 2) {
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
+    private boolean has1SeaNei(int a, int b) {
+        int cnt = 0;
         for (int dir = 0; dir < 4; dir++) {
             if (board[a + ddr[dir]][b + ddc[dir]].type == 2) {
-                return true;
+                cnt++;
             }
         }
-        return false;
+        return (cnt == 1);
     }
 
     /**
@@ -121,7 +130,7 @@ public class GameHandler {
      * @return
      */
     private boolean canPlace(int a, int b) {
-        return board[a][b].type != 2 && hasSeaNei(a, b) && noNew2x2(a, b);
+        return board[a][b].type != 2 && has1SeaNei(a, b) && noNew2x2(a, b);
     }
     int[][] vis;
 
@@ -257,6 +266,13 @@ public class GameHandler {
                         return "Istnieje wyspa ze złą liczbą pól!";
                     }
                     area -= sz;
+                }
+            }
+        }
+        for (int r = 1; r <= n; r++) {
+            for (int c = 1; c <= n; c++) {
+                if (board[r][c].type == 1 && vis[r][c] == 0) {
+                    return "Istnieje wyspa bez liczby!";
                 }
             }
         }

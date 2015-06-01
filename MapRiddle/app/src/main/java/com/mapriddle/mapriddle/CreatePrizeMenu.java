@@ -1,25 +1,23 @@
 package com.mapriddle.mapriddle;
 
-import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 
-public class CreateMenu extends ActionBarActivity {
+public class CreatePrizeMenu extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_create);
+        setContentView(R.layout.activity_create_prize_menu);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_menu_create, menu);
+        getMenuInflater().inflate(R.menu.menu_create_prize_menu, menu);
         return true;
     }
 
@@ -36,15 +34,5 @@ public class CreateMenu extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    public void createRiddle(View view) {
-        Intent i = new Intent(this, CreateRiddleMenu.class);
-        startActivity(i);
-    }
-
-    public void createPrize(View view) {
-        Intent i = new Intent(this, CreatePrizeMenu.class);
-        startActivity(i);
     }
 }
