@@ -81,6 +81,7 @@ public class RiddleMapCreateActivity extends Activity
         riddle.put("riddleText", riddleText.toString());
         riddle.put("riddleAnswer", riddleAnswer.toString());
         if(lastLocation != null) {
+            riddle.put("riddleHasLocation", true);
             riddle.put("riddleLatitude", lastLocation.getLatitude());
             riddle.put("riddleLongitude", lastLocation.getLongitude());
         }
