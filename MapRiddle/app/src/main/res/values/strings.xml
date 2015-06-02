@@ -19,6 +19,12 @@
 
     <string name="question_save_toast_bad_data">Musisz wypełnić wszystkie pola</string>
 
+    <string name="question_far_away">Jesteś daleko od celu</string>
+    <string name="question_rather_far">Jesteś dość daleko od celu</string>
+    <string name="question_closer">Ciepło, ciepło...</string>
+    <string name="question_reached">Dotarłeś do celu!</string>
+    <string name="question_not_reached">Najpierw dojdź do celu, a potem udziel odpowiedzi</string>
+
     <string name="riddle_answer">OK</string>
     <string name="riddle_downloading">Pobieranie zagadki...</string>
     <string name="question_bad_answer">Zła odpowiedź :P</string>
@@ -51,5 +57,11 @@ Twoim celem jest zaznaczenie wysp na morzu. Do każdej wyspy ma należeć dokła
     <string name="title_activity_set_params">SetParams</string>
     <string name="title_activity_menu_create">MenuCreate</string>
     <string name="title_activity_create_prize_menu">CreatePrizeMenu</string>
+    <string name="no_task">Brak zadania (dotknij aby utworzyć)</string>
+    <string name="button_create_scenario">Twórz scenariusz</string>
+    <string name="scenario_save_text">Zapisz scenariusz</string>
+    <string name="title_activity_load_game">LoadGame</string>
+
+    <string name="button_load_picture">Load Picture</string>
 
 </resources>
