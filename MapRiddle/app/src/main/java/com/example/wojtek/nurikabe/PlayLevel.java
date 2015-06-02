@@ -15,7 +15,9 @@ import android.widget.TextView;
 
 import com.mapriddle.mapriddle.R;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import static android.util.Log.d;
@@ -31,6 +33,13 @@ public class PlayLevel extends Activity {
     private int sea_color = Color.parseColor("#33CCFF");
     private int side;
 
+    private int getTimeSeed() {
+        Calendar cal = Calendar.getInstance();
+        cal.getTime();
+        SimpleDateFormat sdf = new SimpleDateFormat("S");
+        return Integer.parseInt(sdf.format(cal.getTime()));
+    }
+
 
     /**
      * In onCreate method we create a GameHandler generating board and creates a GridView
@@ -45,6 +54,12 @@ public class PlayLevel extends Activity {
         Bundle b = getIntent().getExtras();
         side = b.getInt("side");
         int seed = b.getInt("seed");
+        int chosen = b.getInt("chosen");
+        if (chosen == 0) {
+            side = 10;
+            seed = getTimeSeed();
+        }
+
 
         GameHandler handler = new GameHandler(side);
         ArrayList<Triple> islands = handler.generateBoard(seed);
@@ -55,6 +70,8 @@ public class PlayLevel extends Activity {
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
         //System.out.println(metrics.widthPixels + " " + metrics.heightPixels);
         d("Width/height", metrics.widthPixels + " " + metrics.heightPixels);
+        d("chosen ", chosen + " ");
+
 
         GridView gridview = (GridView) findViewById(R.id.grid);
         FieldAdapter fa = new FieldAdapter(this);

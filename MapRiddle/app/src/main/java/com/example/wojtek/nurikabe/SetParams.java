@@ -89,6 +89,7 @@ public class SetParams extends Activity {
     public void play(View view) {
         Intent intent = new Intent(this, PlayLevel.class);
         Bundle b = new Bundle();
+        b.putInt("chosen", 1);
         b.putInt("side", getSide()); //Your id
         b.putInt("seed", getSeed());
         intent.putExtras(b); //Put your id to your next Intent
