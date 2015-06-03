@@ -31,7 +31,7 @@ public class RiddleMapCreateActivity extends Activity
     private final Handler handler = new Handler();
     private boolean savingStarted = false;
     private GoogleApiClient googleApiClient;
-    private boolean waitingForLocation = false;
+    private int waitingForLocation = -1; //negative if not, positive number is user's request number
     private Location lastLocation = null;
     private TextView locationState;
 
@@ -56,7 +56,7 @@ public class RiddleMapCreateActivity extends Activity
     public synchronized void saveRiddle(View view){
         if (savingStarted)
             return;
-        if(waitingForLocation) {
+        if(waitingForLocation > 0) {
             showToast(R.string.question_obtaining_location, getApplicationContext());
             return;
         }
@@ -124,14 +124,14 @@ public class RiddleMapCreateActivity extends Activity
     public synchronized void setLocation(View view){
         if(savingStarted)
             return;
-        if(waitingForLocation && view != null) //called by user second time
+        if(waitingForLocation > 0 && view != null) //called by user second time
             return;
-        if(!waitingForLocation && view == null) { //called by handler, but user-cancelled
+        if(waitingForLocation < 0 && view == null) { //called by handler, but user-cancelled
             locationState.setText(getResources().getString(R.string.question_no_location));
             return;
         }
         locationState.setText(getResources().getString(R.string.question_obtaining_location));
-        waitingForLocation = true;
+        waitingForLocation = Math.abs(waitingForLocation)+1;
 
         if(!googleApiClient.isConnected()) {
             handler.postDelayed(new Runnable(){
@@ -148,6 +148,20 @@ public class RiddleMapCreateActivity extends Activity
         mLocationRequest.setInterval(1000);
         mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         LocationServices.FusedLocationApi.requestLocationUpdates(googleApiClient, mLocationRequest, this);
+        handler.postDelayed(new Runnable() {
+            private int locNum = waitingForLocation;
+            @Override
+            public void run() {
+                if (waitingForLocation == locNum) {
+                    waitingForLocation = -Math.abs(waitingForLocation);
+                    if(lastLocation != null)
+                        locationState.setText(getResources().getString(R.string.question_location_obtained));
+                    else
+                        locationState.setText(getResources().getString(R.string.question_no_location));
+                    LocationServices.FusedLocationApi.removeLocationUpdates(googleApiClient, RiddleMapCreateActivity.this);
+                }
+            }
+        }, 60 * 1000);
     }
 
     @Override
@@ -157,7 +171,7 @@ public class RiddleMapCreateActivity extends Activity
         locationState.setText(locationState.getText()+".");
         if((location.hasAccuracy() && location.getAccuracy() <= 10)
             || (lastLocation != null && location.distanceTo(lastLocation) <= 10)){
-            waitingForLocation = false;
+            waitingForLocation = -Math.abs(waitingForLocation);
             locationState.setText(getResources().getString(R.string.question_location_obtained));
             LocationServices.FusedLocationApi.removeLocationUpdates(googleApiClient, this);
         }
@@ -171,7 +185,7 @@ public class RiddleMapCreateActivity extends Activity
     public void clearLocation(View view){
         if(savingStarted)
             return;
-        waitingForLocation = false;
+        waitingForLocation = -Math.abs(waitingForLocation);
         lastLocation = null;
         locationState.setText(getResources().getString(R.string.question_no_location));
     }
