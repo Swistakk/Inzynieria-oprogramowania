@@ -116,6 +116,22 @@
             android:name="com.scenarios.PlayScenario"
             android:label="@string/app_name" >
         </activity>
+        <activity
+            android:name="com.example.krzysztof.magicsquare.TimerActivity"
+            android:label="@string/title_activity_timer" >
+        </activity>
+        <activity
+            android:name=".Winning"
+            android:label="@string/title_activity_winning" >
+        </activity>
+        <activity
+            android:name="com.example.krzysztof.magicsquare.Winning"
+            android:label="@string/title_activity_winning" >
+        </activity>
+        <activity
+            android:name="com.example.krzysztof.magicsquare.BestGamers"
+            android:label="@string/title_activity_best_gamers" >
+        </activity>
     </application>
 
 </manifest>
