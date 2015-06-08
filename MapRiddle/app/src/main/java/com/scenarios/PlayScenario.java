@@ -125,6 +125,11 @@ public class PlayScenario extends Activity {
                 i.putExtra("INFO_PLEASE", true);
                 startActivityForResult(i, requestCode);
             }
+            else if(tasks[requestCode].equals("FI")){
+                //        Intent i = new Intent(this, RiddleMapPlayActivity.class);//TODO
+                //          i.putExtra("INFO_PLEASE", true);
+                //           startActivityForResult(i, requestCode);
+            }
             else{
                 Intent i = new Intent(this, RiddleMapPlayActivity.class);
                 i.putExtra("RIDDLE_CODE", tasks[requestCode]);
