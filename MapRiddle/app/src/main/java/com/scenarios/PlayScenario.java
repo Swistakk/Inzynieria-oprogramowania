@@ -86,8 +86,10 @@ public class PlayScenario extends Activity {
                             onActivityResult(-1, Activity.RESULT_OK, null);
                         }
                     });
-                else
+                else {
                     showToast("Nie ma takiego scenariusza", PlayScenario.this);
+                    started = false;
+                }
             }
         });
     }
