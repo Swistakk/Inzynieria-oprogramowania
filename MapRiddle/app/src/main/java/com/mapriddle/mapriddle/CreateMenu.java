@@ -46,7 +46,7 @@ public class CreateMenu extends ActionBarActivity {
     }
 
     public void createPrize(View view) {
-        Intent i = new Intent(this, CreatePrizeMenu.class);
+        Intent i = new Intent(this, CreatePrize.class);
         startActivity(i);
     }
 

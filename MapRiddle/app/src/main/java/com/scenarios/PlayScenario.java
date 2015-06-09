@@ -12,8 +12,6 @@ import android.widget.TextView;
 
 import com.example.joanna.nonograms.StartActivity;
 import com.example.krzysztof.magicsquare.FirstLevel;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.location.LocationServices;
 import com.mapriddle.mapriddle.R;
 import com.mapriddle.mapriddle.RiddleMapPlayActivity;
 import com.parse.GetCallback;
@@ -29,6 +27,7 @@ import static utils.ToastPresenter.showToast;
 public class PlayScenario extends Activity {
     private String code = "";
     private String[] tasks = new String[5];
+    private String prizeId;
     private Handler handler = new Handler();
     private boolean started = false;
 
@@ -57,6 +56,7 @@ public class PlayScenario extends Activity {
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
         savedInstanceState.putStringArray("tasks", tasks);
+        savedInstanceState.putString("prizeId", prizeId);
         savedInstanceState.putBoolean("started", started);
 
         // Always call the superclass so it can save the view hierarchy state
@@ -83,6 +83,7 @@ public class PlayScenario extends Activity {
                             showToast("Scenariusz pobrany", PlayScenario.this);
                             for (int i = 0; i < 5; i++)
                                 tasks[i] = object.getString("task" + i);
+                            prizeId = object.getString("prizeId");
                             onActivityResult(-1, Activity.RESULT_OK, null);
                         }
                     });
@@ -94,7 +95,7 @@ public class PlayScenario extends Activity {
 
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(resultCode == RESULT_OK){
+        if(resultCode == RESULT_OK) {
             if(requestCode != -1){
                 showToast("Gratulacje!", this);
             }
@@ -105,7 +106,13 @@ public class PlayScenario extends Activity {
             while(++requestCode < 5 && tasks[requestCode].equals(""));
 
             if(requestCode == 5){
-                showToast("Wygrałeś/liście!", this);
+                Log.d("requestCode", "5");
+                showToast("Wygrałeś!", this);
+                //ShowPrize sp = new ShowPrize(prize);
+                Intent i = new Intent(this, ShowPrize.class);
+                //String keyIdentifer  = null;
+                i.putExtra("PRIZE_ID", prizeId);
+                startActivityForResult(i, requestCode);
                 finish();
                 return;
             }
@@ -125,7 +132,7 @@ public class PlayScenario extends Activity {
                 i.putExtra("INFO_PLEASE", true);
                 startActivityForResult(i, requestCode);
             }
-            else{
+            else {
                 Intent i = new Intent(this, RiddleMapPlayActivity.class);
                 i.putExtra("RIDDLE_CODE", tasks[requestCode]);
                 startActivityForResult(i, requestCode);

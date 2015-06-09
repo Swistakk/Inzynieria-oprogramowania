@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scroll"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/prize_id"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="30dp"
+                android:gravity="center"/>
+
+            <Button
+                android:id="@+id/prize_button"
+                android:visibility="invisible"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/prize_accept"
+                android:gravity="center"
+                android:onClick="quit" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/prize"
+            android:layout_width="fill_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <EditText
+                android:id="@+id/prize_title_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/prize_edit_hint"
+                android:inputType="text"
+                android:layout_weight="0"
+                android:gravity="center"/>
+
+            <EditText
+                android:id="@+id/prize_body_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/prize_body_edit_hint"
+                android:inputType="text|textMultiLine"
+                android:layout_weight="1"
+                android:gravity="center"/>
+
+            <ImageView
+                android:id="@+id/image_view"
+                android:layout_width="200dp"
+                android:layout_height="300dp" />
+
+            <Button
+                android:id="@+id/button_load_picture"
+                android:text="@string/button_load_picture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"/>
+
+            <Button
+                android:id="@+id/prize_save"
+                android:text="@string/prize_save_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:onClick="savePrize"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
+

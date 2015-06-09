@@ -1,17 +1,15 @@
 package com.scenarios;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.mapriddle.mapriddle.R;
-import com.mapriddle.mapriddle.RiddleMapListActivity;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.SaveCallback;
@@ -23,6 +21,7 @@ import static utils.ToastPresenter.showToast;
  */
 public class ScenarioCreator extends Activity {
     private String[] tasks = new String[5];
+    private String prizeId;
     private boolean savingStarted = false;
     private Handler handler = new Handler();
 
@@ -30,8 +29,10 @@ public class ScenarioCreator extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scenario_creator);
-        for(int i = 0; i < 5; i++)
+        for(int i = 0; i < 5; i++) {
             tasks[i] = "";
+            prizeId = "";
+        }
     }
 
     public void taskClicked(View view) {
@@ -48,11 +49,17 @@ public class ScenarioCreator extends Activity {
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(resultCode == RESULT_OK){
+        if(resultCode == RESULT_OK) {
             tasks[requestCode] = data.getStringExtra("task");
-            ((TextView) findViewById(getResources().getIdentifier("task"+requestCode, "id", getPackageName()))).setText(data.getStringExtra("name"));
+            ((TextView) findViewById(getResources().getIdentifier("task"+requestCode, "id",
+                    getPackageName()))).setText(data.getStringExtra("name"));
             Log.e("zyr", tasks[requestCode]);
         }
+    }
+
+    private void loadPrize() {
+        prizeId = ((EditText) findViewById(R.id.prize)).getText().toString().replaceAll("\\s", "");
+        Log.d("load", prizeId);
     }
 
     public synchronized void saveScenario(View view) {
@@ -60,9 +67,12 @@ public class ScenarioCreator extends Activity {
             return;
         savingStarted = true;
 
+        loadPrize();
+
         final ParseObject s = new ParseObject("SCENARIO");
         for(int i = 0; i < 5; i++)
-            s.put("task"+i, tasks[i]);
+            s.put("task" + i, tasks[i]);
+        s.put("prizeId", prizeId);
         showToast("Zapisywanie...", this);
         s.saveInBackground(new SaveCallback() {
             public void done(ParseException e) {

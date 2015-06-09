@@ -55,13 +55,25 @@ Twoim celem jest zaznaczenie wysp na morzu. Do każdej wyspy ma należeć dokła
     <string name="nonograms_app_name">Nonogramy</string>
     <string name="title_activity_rules">RulesActivity</string>
     <string name="title_activity_set_params">SetParams</string>
-    <string name="title_activity_menu_create">MenuCreate</string>
-    <string name="title_activity_create_prize_menu">CreatePrizeMenu</string>
+    <string name="title_activity_menu_create">Twórz</string>
+    <string name="title_activity_create_prize_menu">Twórz nagrodę</string>
     <string name="no_task">Brak zadania (dotknij aby utworzyć)</string>
+    <string name="scenario_prize_hint">Wprowadź kod nagrody</string>
     <string name="button_create_scenario">Twórz scenariusz</string>
     <string name="scenario_save_text">Zapisz scenariusz</string>
     <string name="title_activity_load_game">LoadGame</string>
 
     <string name="button_load_picture">Load Picture</string>
+    <string name="prize_title_edit">Tytuł nagrody:</string>
+    <string name="prize_body_edit">Treść nagrody:</string>
+    <string name="prize_saving">Zapisywanie nagrody...</string>
+    <string name="prize_saved">Nagroda została zapisana</string>
+    <string name="prize_edit_hint">Nazwa nagrody</string>
+    <string name="prize_body_edit_hint">Treść nagrody</string>
+    <string name="prize_save_text">Zapisz nagrodę</string>
+    <string name="prize_accept">OK</string>
+
+    <string name="title_activity_create_prize">Stwórz nagrodę</string>
+    <string name="title_activity_show_prize">Nagroda</string>
 
 </resources>

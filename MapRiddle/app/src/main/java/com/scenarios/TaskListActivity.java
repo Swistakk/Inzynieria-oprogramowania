@@ -1,7 +1,6 @@
 package com.scenarios;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -12,7 +11,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.mapriddle.mapriddle.R;
-import com.mapriddle.mapriddle.RiddleMapPlayActivity;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
