@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Filomino</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_game_rules">GameRules</string>
+    <string name="title_activity_set_params">SetParams</string>
+    <string name="title_activity_play_level">PlayLevel</string>
+    <string name="filo_rules">W tej grze musisz wszystkie pola wypełnić liczbami.
+    W efekcie plansza ma zostać podzielona na klocki. Każdy klocek
+    ma się składać z pól z liczbami oznaczającymi jak duży jest ten klocek
+    (np. klocek mogą tworzyć 4 pola z liczbą 4). Klocki z tymi samymi liczbami
+    nie mogą się stykać bokiem.</string>
+</resources>

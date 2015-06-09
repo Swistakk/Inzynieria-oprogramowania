@@ -64,6 +64,7 @@ Twoim celem jest zaznaczenie wysp na morzu. Do każdej wyspy ma należeć dokła
     <string name="title_activity_load_game">LoadGame</string>
 
     <string name="button_load_picture">Load Picture</string>
+
     <string name="prize_title_edit">Tytuł nagrody:</string>
     <string name="prize_body_edit">Treść nagrody:</string>
     <string name="prize_saving">Zapisywanie nagrody...</string>
@@ -75,5 +76,9 @@ Twoim celem jest zaznaczenie wysp na morzu. Do każdej wyspy ma należeć dokła
 
     <string name="title_activity_create_prize">Stwórz nagrodę</string>
     <string name="title_activity_show_prize">Nagroda</string>
+
+    <string name="title_activity_timer">TimerActivity</string>
+    <string name="title_activity_winning">Winning</string>
+    <string name="title_activity_best_gamers">BestGamers</string>
 
 </resources>

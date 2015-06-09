@@ -80,6 +80,7 @@ public class TaskListActivity extends Activity {
                     riddlePosList.add(new RiddlePos("Nurikabe", "NU"));
                     riddlePosList.add(new RiddlePos("Nonogramy", "NO"));
                     riddlePosList.add(new RiddlePos("Magiczne Kwadraty", "MK"));
+                    riddlePosList.add(new RiddlePos("Filomino", "FI"));
                     for (ParseObject o : riddleList)
                         riddlePosList.add(new RiddlePos(o));
                     handler.post(new Runnable() {
