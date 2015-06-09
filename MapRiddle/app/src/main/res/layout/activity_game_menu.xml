@@ -14,9 +14,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="35dp"
-        android:layout_marginTop="49dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textView3" />
 
     <Button
         android:layout_width="wrap_content"
@@ -24,8 +24,11 @@
         android:text="Zagraj na planszy 3x3"
         android:onClick="play3x3Level"
         android:layout_weight="1"
-        android:layout_marginTop="150dp"
-        android:layout_centerHorizontal="true"/>
+        android:layout_marginTop="32dp"
+        android:id="@+id/button4"
+        android:layout_below="@+id/textView3"
+        android:layout_alignLeft="@+id/button"
+        android:layout_alignStart="@+id/button" />
 
     <Button
         android:layout_width="wrap_content"
@@ -33,9 +36,10 @@
         android:text="Zagraj na plaszny 4x4"
         android:onClick="play4x4Level"
         android:layout_weight="1"
-        android:layout_marginTop="240dp"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/button" />
+        android:layout_marginTop="30dp"
+        android:id="@+id/button"
+        android:layout_below="@+id/button4"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -56,11 +60,36 @@
         android:text="Powrót do menu wyboru łamigłówek"
         android:onClick="exitApplication"
         android:layout_weight="1"
-        android:layout_marginTop="54dp"
-        android:layout_below="@+id/button2"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/button2"
+        android:layout_alignStart="@+id/button2"
         android:layout_alignRight="@+id/button2"
         android:layout_alignEnd="@+id/button2"
+        android:id="@+id/button7" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Walka z czasem"
+        android:id="@+id/button5"
+        android:onClick="playTime"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/button"
+        android:layout_alignStart="@+id/button"
+        android:layout_alignRight="@+id/button2"
+        android:layout_alignEnd="@+id/button2" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Najlepsze wyniki"
+        android:id="@+id/bestRes"
+        android:onClick="showBest"
+        android:layout_below="@+id/button2"
         android:layout_alignLeft="@+id/button2"
-        android:layout_alignStart="@+id/button2" />
+        android:layout_alignStart="@+id/button2"
+        android:layout_marginTop="30dp"
+        android:layout_alignRight="@+id/button7"
+        android:layout_alignEnd="@+id/button7" />
 
 </RelativeLayout>

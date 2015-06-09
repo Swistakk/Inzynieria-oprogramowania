@@ -18,28 +18,32 @@
             android:screenOrientation="sensorPortrait" />
         <activity
             android:name="com.example.joanna.nonograms.MainActivity"
-            android:label="@string/nonograms_app_name" />
+            android:label="@string/nonograms_app_name"
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name="com.example.krzysztof.magicsquare.FirstLevel"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name="com.example.krzysztof.magicsquare.SecondLevel"
             android:label="@string/title_activity_second_level"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name="com.example.krzysztof.magicsquare.GameMenu"
             android:label="@string/title_activity_game_menu"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name="com.example.krzysztof.magicsquare.GameRules"
-            android:label="@string/title_activity_game_rules" />
+            android:label="@string/title_activity_game_rules"
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name="com.example.wojtek.nurikabe.MainActivity"
-            android:label="@string/app_name" />
+            android:label="@string/app_name"
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name="com.example.wojtek.nurikabe.DisplayMessageActivity"
             android:label="@string/title_activity_display_message"
-            android:parentActivityName="com.example.wojtek.nurikabe.MainActivity" >
+            android:parentActivityName="com.example.wojtek.nurikabe.MainActivity"
+            android:screenOrientation="sensorPortrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.wojtek.nurikabe.MainActivity" />
@@ -47,7 +51,8 @@
         <activity
             android:name="com.example.wojtek.nurikabe.GameRules"
             android:label="@string/title_activity_game_rules"
-            android:parentActivityName="com.example.wojtek.nurikabe.MainActivity" >
+            android:parentActivityName="com.example.wojtek.nurikabe.MainActivity"
+            android:screenOrientation="sensorPortrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.wojtek.nurikabe.MainActivity" />
@@ -55,29 +60,36 @@
         <activity
             android:name="com.example.wojtek.nurikabe.PlayLevel"
             android:label="@string/title_activity_play_level"
-            android:parentActivityName="com.example.wojtek.nurikabe.MainActivity" >
+            android:parentActivityName="com.example.wojtek.nurikabe.MainActivity"
+            android:screenOrientation="sensorPortrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.wojtek.nurikabe.MainActivity" />
         </activity>
         <activity
             android:name=".RiddleMapPlayActivity"
-            android:label="@string/app_name" />
+            android:label="@string/app_name"
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".RiddleMapCreateActivity"
-            android:label="@string/app_name" />
+            android:label="@string/app_name"
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".RiddleMapListActivity"
-            android:label="@string/app_name" />
+            android:label="@string/app_name"
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".CreateRiddleMenu"
-            android:label="@string/app_name" />
+            android:label="@string/app_name"
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".PlayMenu"
-            android:label="@string/app_name" />
+            android:label="@string/app_name"
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".MainMenu"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="sensorPortrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -86,35 +98,58 @@
         </activity>
         <activity
             android:name="com.example.joanna.nonograms.RulesActivity"
-            android:label="@string/title_activity_rules" >
+            android:label="@string/title_activity_rules"
+            android:screenOrientation="sensorPortrait" >
         </activity>
         <activity
             android:name="com.example.wojtek.nurikabe.SetParams"
             android:label="@string/title_activity_set_params"
-            android:parentActivityName="com.example.wojtek.nurikabe.MainActivity" >
+            android:parentActivityName="com.example.wojtek.nurikabe.MainActivity"
+            android:screenOrientation="sensorPortrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.wojtek.nurikabe.MainActivity" />
         </activity>
         <activity
             android:name=".CreateMenu"
-            android:label="@string/title_activity_menu_create" >
+            android:label="@string/title_activity_menu_create"
+            android:screenOrientation="sensorPortrait" >
         </activity>
         <activity
             android:name=".CreatePrizeMenu"
-            android:label="@string/title_activity_create_prize_menu" >
+            android:label="@string/title_activity_create_prize_menu"
+            android:screenOrientation="sensorPortrait" >
         </activity>
         <activity
             android:name="com.scenarios.ScenarioCreator"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="sensorPortrait" >
         </activity>
         <activity
             android:name="com.scenarios.TaskListActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="sensorPortrait" >
         </activity>
         <activity
             android:name="com.scenarios.PlayScenario"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="sensorPortrait" >
+        </activity>
+        <activity
+            android:name="com.example.krzysztof.magicsquare.TimerActivity"
+            android:label="@string/title_activity_timer" >
+        </activity>
+        <activity
+            android:name=".Winning"
+            android:label="@string/title_activity_winning" >
+        </activity>
+        <activity
+            android:name="com.example.krzysztof.magicsquare.Winning"
+            android:label="@string/title_activity_winning" >
+        </activity>
+        <activity
+            android:name="com.example.krzysztof.magicsquare.BestGamers"
+            android:label="@string/title_activity_best_gamers" >
         </activity>
     </application>
 

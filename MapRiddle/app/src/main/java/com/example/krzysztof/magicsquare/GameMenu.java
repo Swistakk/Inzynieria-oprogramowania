@@ -37,11 +37,29 @@ public class GameMenu extends Activity {
     }
 
     /**
+     * this method creates 4x4
+     * @param view which invoke this method
+     */
+    public void playTime(View view) {
+        Intent intent = new Intent(this, TimerActivity.class);
+        startActivity(intent);
+    }
+
+    /**
      * this method creates game rules activity
      * @param view which invoke this method
      */
     public void displayRules(View view) {
         Intent intent = new Intent(this, GameRules.class);
+        startActivity(intent);
+    }
+
+    /**
+     * this method creates best results activity
+     * @param view which invoke this method
+     */
+    public void showBest(View view) {
+        Intent intent = new Intent(this, BestGamers.class);
         startActivity(intent);
     }
 

@@ -86,8 +86,10 @@ public class PlayScenario extends Activity {
                             onActivityResult(-1, Activity.RESULT_OK, null);
                         }
                     });
-                else
+                else {
                     showToast("Nie ma takiego scenariusza", PlayScenario.this);
+                    started = false;
+                }
             }
         });
     }
@@ -124,6 +126,11 @@ public class PlayScenario extends Activity {
                 Intent i = new Intent(this, FirstLevel.class);
                 i.putExtra("INFO_PLEASE", true);
                 startActivityForResult(i, requestCode);
+            }
+            else if(tasks[requestCode].equals("FI")){
+                //        Intent i = new Intent(this, RiddleMapPlayActivity.class);//TODO
+                //          i.putExtra("INFO_PLEASE", true);
+                //           startActivityForResult(i, requestCode);
             }
             else{
                 Intent i = new Intent(this, RiddleMapPlayActivity.class);
