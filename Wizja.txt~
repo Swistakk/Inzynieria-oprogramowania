@@ -8,7 +8,7 @@ Wizja:
 7. Przewidywany "zwrot z inwestycji"
 
 1. Program będzie udostępniał kilka-kilkanaście łamigłówek do rozwiązywania przez 1 osobę. Łamigłówki będą dwojakiego typu:
-a) logiczne, np. nonogramy, nurikabe
+a) logiczne, np. sudoku, samotnik
 b) słowno-ruchowe, np. "Pójdź do miejsca, gdzie faraon coś wyrzeźbić kazał" (rozwiązanie: pójść do Sfinksa)
 oraz rankingi.
 Rozwiązanie łamigłówki będzie udostępniać inne łamigłówki, lub wiadomości, linki, zdjęcia.
@@ -27,7 +27,7 @@ d) zbyt mało czasu poświęcane na trening logicznego myślenia
 b) łączenie zadań w ciągi - rozwiązanie jednego odblokowuje kolejne
 c) prezentowanie nagrody za rozwiązane zadanie
 
-6. a) aplikacja będzie działać na telefonach i tabletach z systemem Android 3.0 lub nowszym posiadających GPS
+6. a) aplikacja będzie działać na telefonach i tabletach z systemem Android 2.3 lub nowszym posiadających GPS
 b) przejrzysty i intuicyjny interfejs
 c) responsywność, a tam, gdzie nie da się jej osiągnąć, stosowna informacja o konieczności zaczekania
 
