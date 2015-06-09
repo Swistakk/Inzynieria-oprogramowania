@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.joanna.nonograms.StartActivity;
 import com.example.krzysztof.magicsquare.FirstLevel;
+import com.example.wojtek.filomino.PlayLevel;
 import com.mapriddle.mapriddle.R;
 import com.mapriddle.mapriddle.RiddleMapPlayActivity;
 import com.parse.GetCallback;
@@ -125,9 +126,11 @@ public class PlayScenario extends Activity {
                 startActivityForResult(i, requestCode);
             }
             else if(tasks[requestCode].equals("NU")){
-        //        Intent i = new Intent(this, RiddleMapPlayActivity.class);//TODO
-      //          i.putExtra("INFO_PLEASE", true);
-     //           startActivityForResult(i, requestCode);
+                Intent i = new Intent(this, com.example.wojtek.nurikabe.PlayLevel.class);//TODO
+                i.putExtra("INFO_PLEASE", true);
+                i.putExtra("seed", 10);
+                i.putExtra("side", 10);
+                startActivityForResult(i, requestCode);
             }
             else if(tasks[requestCode].equals("MK")){
                 Intent i = new Intent(this, FirstLevel.class);
@@ -135,9 +138,9 @@ public class PlayScenario extends Activity {
                 startActivityForResult(i, requestCode);
             }
             else if(tasks[requestCode].equals("FI")){
-                //        Intent i = new Intent(this, RiddleMapPlayActivity.class);//TODO
-                //          i.putExtra("INFO_PLEASE", true);
-                //           startActivityForResult(i, requestCode);
+                Intent i = new Intent(this, PlayLevel.class);//TODO
+                i.putExtra("INFO_PLEASE", true);
+                startActivityForResult(i, requestCode);
             }
             else{
                 Intent i = new Intent(this, RiddleMapPlayActivity.class);

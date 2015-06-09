@@ -1,9 +1,9 @@
 <resources>
     <string name="button_start">Start</string>
-    <string name="button_rules">Rules</string>
-    <string name="button_quit">Quit</string>
-    <string name="button_clear">Clear</string>
-    <string name="button_check">Check</string>
+    <string name="button_rules">Zasady gry</string>
+    <string name="button_quit">Wyjdź</string>
+    <string name="button_clear">Wyczyść</string>
+    <string name="button_check">Sprawdź</string>
     <string name="nonograms_rules_heading">Zasady gry</string>
     <string name="nonograms_rules_text_1">Twoim zadaniem jest odkrycie pierwotnego wyglądu planszy,
         a dokładniej pól, które były na niej zamalowane kolorem zielonym. Pomogą Ci w tym liczby

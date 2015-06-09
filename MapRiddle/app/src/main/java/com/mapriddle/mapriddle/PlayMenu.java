@@ -5,10 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.joanna.nonograms.StartActivity;
 import com.example.krzysztof.magicsquare.GameMenu;
-import com.example.wojtek.nurikabe.*;
-import com.example.wojtek.nurikabe.MainActivity;
 import com.scenarios.PlayScenario;
 
 /**
@@ -45,6 +42,11 @@ public class PlayMenu extends Activity{
      */
     public void play_nurikabe(View view) {
         Intent i = new Intent(this, com.example.wojtek.nurikabe.MainActivity.class);
+        startActivity(i);
+    }
+
+    public void play_filomino(View view) {
+        Intent i = new Intent(this, com.example.wojtek.filomino.MainFilomino.class);
         startActivity(i);
     }
 

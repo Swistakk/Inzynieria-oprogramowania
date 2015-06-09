@@ -1,9 +1,9 @@
 package com.example.wojtek.nurikabe;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.Menu;
@@ -18,7 +18,6 @@ import com.mapriddle.mapriddle.R;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
 import static android.util.Log.d;
 
@@ -145,7 +144,14 @@ public class PlayLevel extends Activity {
                 }
             }
         }
-        mes.setText(handler.checkBoard());
+        String message = handler.checkBoard();
+        if (message == "WOW! Udało Ci się!!!") {
+            if(getIntent().getExtras().getBoolean("INFO_PLEASE")){
+                setResult(RESULT_OK, new Intent());
+                finish();
+            }
+        }
+        mes.setText(message);
     }
 
     @Override

@@ -26,6 +26,13 @@
         android:layout_gravity="center"
         android:onClick="play_nurikabe"/>
     <Button
+        android:id="@+id/button_filomino"
+        android:text="@string/button_filomino"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="play_filomino"/>
+    <Button
         android:id="@+id/button_riddles"
         android:text="@string/button_riddles"
         android:layout_width="wrap_content"
