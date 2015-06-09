@@ -94,7 +94,7 @@ public class TimerActivity extends LevelActivity {
         super.onCreate(savedInstanceState);
         subLevel++;
         subLevel %= amount;
-        setContentView(R.layout.activity_best_gamers);
+        setContentView(R.layout.activity_timer);
         RelativeLayout layout = (RelativeLayout) findViewById(R.id.timer_layout);
         BoardHandler.generateBoard(layout, squeres, this,
                 STARTX, STARTY, SIZE, R.layout.first_level_properties, LEVELKIND);
