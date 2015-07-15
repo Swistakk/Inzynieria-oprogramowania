@@ -1,9 +1,5 @@
 package com.example.wojtek.filomino;
 
-/**
- * Created by wojtek on 02.06.15.
- */
-
 import android.content.Context;
 import android.graphics.Color;
 import android.util.DisplayMetrics;
@@ -30,11 +26,11 @@ public class FieldAdapter extends BaseAdapter {
     private GameHandler handler;
     private int[] color;
 
-    public FieldAdapter(Context c, int s, int[] color_) {
+    public FieldAdapter(Context c, int s, int[] color_, int id) {
         color = color_;
         side = s;
         handler = new GameHandler(side);
-        ArrayList<Triple> fixed = handler.generateBoard();
+        handler.generateBoard(side, id);
         handler.updateFullComps();
         context = c;
     }
@@ -79,9 +75,7 @@ public class FieldAdapter extends BaseAdapter {
 
         DisplayMetrics metrics = context.getResources().getDisplayMetrics();
         int width = metrics.widthPixels;
-        int height = metrics.heightPixels;
 
-        //int margins = findViewById(R.id.message);
         int size = width / side - 1;
 
         if (convertView == null) {

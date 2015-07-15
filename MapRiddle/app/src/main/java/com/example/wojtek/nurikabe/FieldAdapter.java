@@ -3,6 +3,7 @@ package com.example.wojtek.nurikabe;
 import android.content.Context;
 import android.graphics.Color;
 import android.util.DisplayMetrics;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -89,7 +90,8 @@ public class FieldAdapter extends BaseAdapter {
         } else {
             textView = (TextView) convertView;
         }
-
+        textView.setGravity(Gravity.CENTER);
+        textView.setTextSize(size * 2 / 5);
         textView.setText(boardDesc[position]);
         return textView;
     }

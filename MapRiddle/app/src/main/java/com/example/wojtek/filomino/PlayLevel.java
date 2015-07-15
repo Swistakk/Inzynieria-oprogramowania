@@ -23,7 +23,7 @@ public class PlayLevel extends Activity {
             Color.CYAN, Color.parseColor("#DDA0DD") /*violet*/, Color.parseColor("#FFA500") /*orange*/,
             Color.parseColor("#D2691E") /*brown*/};
 
-    private int side;
+    private int side, id;
     private int range = 10;
     String message;
 
@@ -32,15 +32,16 @@ public class PlayLevel extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.filomino_activity_play_level);
 
-        side = 8;
-
+        Bundle b = getIntent().getExtras();
+        side = b.getInt("side");
+        id = b.getInt("seed");
 
         DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
 
 
         final GridView gridview = (GridView) findViewById(R.id.grid);
-        final FieldAdapter fa = new FieldAdapter(this, side, color);
+        final FieldAdapter fa = new FieldAdapter(this, side, color, id);
 
         final GridView choose_grid = (GridView) findViewById(R.id.choose_grid);
         final ChoiceAdapter cgfa = new ChoiceAdapter(this);

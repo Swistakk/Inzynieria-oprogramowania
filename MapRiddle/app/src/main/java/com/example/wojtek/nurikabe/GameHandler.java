@@ -7,10 +7,6 @@ import java.util.Random;
 import static android.util.Log.d;
 
 /**
- * Created by wojtek on 24.04.15.
- */
-
-/**
  * Class responsible for Nurikabe-specific things.
  * It is able to generate boards and checking solutions
  * Everything within this class is 1-indexed,
@@ -176,8 +172,6 @@ public class GameHandler {
         }
         int st_r = rand.nextInt(n) + 1;
         int st_c = rand.nextInt(n) + 1;
-        //System.out.println("START: " + st_r + " " + st_c);
-        d("START", st_r + " " + st_c);
         board[st_r][st_c].type = 2;
         int sea_area = 1;
         int failed_tries = 0, max_failed_tries = 100;

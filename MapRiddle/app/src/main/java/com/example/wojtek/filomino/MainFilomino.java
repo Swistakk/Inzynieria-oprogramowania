@@ -46,7 +46,7 @@ public class MainFilomino extends Activity {
      * @param view
      */
     public void play(View view) {
-        Intent intent = new Intent(this, PlayLevel.class);
+        Intent intent = new Intent(this, SetParams.class);
         startActivity(intent);
     }
 

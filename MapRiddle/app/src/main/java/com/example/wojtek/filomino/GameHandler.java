@@ -1,14 +1,6 @@
 package com.example.wojtek.filomino;
 
-import java.util.ArrayList;
-
-/**
- * Created by wojtek on 02.06.15.
- */
 public class GameHandler {
-
-
-
     /**
      * Creates a blank board of size n
      * ("2" in "n + 2" stands guards along each side
@@ -39,44 +31,18 @@ public class GameHandler {
     int[] ddc = {0, 0, 1, -1};
 
 
-    public ArrayList<Triple> generateBoard() {
-        ArrayList<Triple> to_ret = new ArrayList<Triple>(1);
-        to_ret.add(new Triple(0, 0, 1));
-        to_ret.add(new Triple(0, 2, 1));
-        to_ret.add(new Triple(0, 7, 1));
-        to_ret.add(new Triple(1, 4, 1));
-        to_ret.add(new Triple(1, 5, 3));
-        to_ret.add(new Triple(1, 6, 1));
-        to_ret.add(new Triple(1, 7, 2));
-        to_ret.add(new Triple(2, 0, 1));
-        to_ret.add(new Triple(2, 1, 8));
-        to_ret.add(new Triple(2, 2, 1));
-        to_ret.add(new Triple(2, 4, 7));
-        to_ret.add(new Triple(3, 0, 7));
-        to_ret.add(new Triple(3, 4, 7));
-        to_ret.add(new Triple(4, 0, 1));
-        to_ret.add(new Triple(4, 1, 3));
-        to_ret.add(new Triple(4, 3, 1));
-        to_ret.add(new Triple(4, 5, 1));
-        to_ret.add(new Triple(4, 6, 8));
-        to_ret.add(new Triple(5, 1, 1));
-        to_ret.add(new Triple(5, 3, 4));
-        to_ret.add(new Triple(5, 4, 2));
-        to_ret.add(new Triple(5, 6, 1));
-        to_ret.add(new Triple(6, 0, 6));
-        to_ret.add(new Triple(6, 2, 1));
-        to_ret.add(new Triple(6, 5, 5));
-        to_ret.add(new Triple(6, 7, 2));
-        to_ret.add(new Triple(7, 4, 1));
-        to_ret.add(new Triple(7, 7, 2));
-
-
-
-        for (Triple tr : to_ret) {
-            board[tr.st][tr.nd].type = FieldType.FILLED_FIXED;
-            board[tr.st][tr.nd].number = tr.rd;
+    public void generateBoard(int n, int id) {
+        BoardsBase base = new BoardsBase();
+        String board_desc = base.getBoard(n, id);
+        for (int r = 0; r < n; r++) {
+            for (int c = 0; c < n; c++) {
+                int val = Character.getNumericValue(board_desc.charAt(n * r + c));
+                if (val != 0) {
+                    board[r][c].type = FieldType.FILLED_FIXED;
+                    board[r][c].number = val;
+                }
+            }
         }
-        return to_ret;
     }
 
 

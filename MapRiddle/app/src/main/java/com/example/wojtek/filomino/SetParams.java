@@ -18,7 +18,7 @@ public class SetParams extends Activity {
     private TextView textView1, textView2;
 
     private int getSide() {
-        return 5 + seekBar1.getProgress();
+        return 6 + seekBar1.getProgress();
     }
     private int getSeed() {
         return seekBar2.getProgress();
